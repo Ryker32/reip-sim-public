@@ -2429,6 +2429,14 @@ ABLATION_CONDITIONS = [
     # No command instability check: disable omega (oscillation) detection
     # Expected: still detects bad_leader via three-tier + direction, but misses oscillation attacks
     ("Ablation_NoInstability_BL",  "reip", "bad_leader", 1, "no_instability"),
+    # Reactive baseline: identical evidence/thresholds/impeachment, but
+    # suspicion is applied only AFTER a command is fully executed (arrival).
+    # Isolates proactive timing as the experimental variable.
+    # Expected: detection still occurs but only after wasted motion;
+    # slower impeachment, lower coverage under bad_leader.
+    ("Reactive_BL",    "reip", "bad_leader",    1, "reactive"),
+    ("Reactive_FL",    "reip", "freeze_leader", 1, "reactive"),
+    ("Reactive_Clean", "reip", None,            1, "reactive"),
 ]
 
 ADVERSARY_CONDITIONS = [
