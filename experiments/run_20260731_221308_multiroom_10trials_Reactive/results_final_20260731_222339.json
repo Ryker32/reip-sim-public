@@ -1,0 +1,11124 @@
+[
+  {
+    "name": "multiroom_reip_Reactive_BL_t2",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 2,
+    "seed": 2000,
+    "final_coverage": 59.83606557377049,
+    "time_to_50": 89.26149296760559,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": 78.6826663017273,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 58.708470582962036,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 50.0,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.048341512680054,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.02248525619507,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 83.29653739929199,
+    "mission_complete_time": null,
+    "peer_emergency_count": 19,
+    "min_peer_separation_mm": 143.84577985773507,
+    "min_wall_clearance_mm": 86.30115528347767,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        14,
+        6
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t4",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 4,
+    "seed": 4000,
+    "final_coverage": 58.19672131147541,
+    "time_to_50": 94.21888566017151,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": 62.8080096244812,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 42.83575105667114,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 48.36065573770492,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.036030530929565,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.00831913948059,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 92.00000834465027,
+    "mission_complete_time": null,
+    "peer_emergency_count": 29,
+    "min_peer_separation_mm": 143.4733469555379,
+    "min_wall_clearance_mm": 110.00345105018354,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        14,
+        9
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t6",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 6,
+    "seed": 6000,
+    "final_coverage": 49.18032786885246,
+    "time_to_50": null,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": 0.2,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 47.540983606557376,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.029295444488525,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.049796104431152,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": null,
+    "mission_complete_time": null,
+    "peer_emergency_count": 13,
+    "min_peer_separation_mm": 142.1439067590043,
+    "min_wall_clearance_mm": 64.00003329144852,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t8",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 8,
+    "seed": 8000,
+    "final_coverage": 54.91803278688525,
+    "time_to_50": 102.72379660606384,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": 108.76641821861267,
+    "time_to_first_suspicion": 0.2,
+    "time_to_detection_2": 88.7634630203247,
+    "num_leader_changes": 1,
+    "false_positives": 0,
+    "coverage_at_90s": 48.36065573770492,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.026138067245483,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.02906322479248,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 108.87346482276917,
+    "mission_complete_time": null,
+    "peer_emergency_count": 25,
+    "min_peer_separation_mm": 143.13826470281546,
+    "min_wall_clearance_mm": 64.00027941901408,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        7
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t10",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 10,
+    "seed": 10000,
+    "final_coverage": 57.377049180327866,
+    "time_to_50": 69.61550998687744,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 54.09836065573771,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.012380361557007,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.049259185791016,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 47.092941999435425,
+    "mission_complete_time": null,
+    "peer_emergency_count": 31,
+    "min_peer_separation_mm": 138.60572189372607,
+    "min_wall_clearance_mm": 85.00682936128612,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        9
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t2",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 2,
+    "seed": 2000,
+    "final_coverage": 69.67213114754098,
+    "time_to_50": 83.99179220199585,
+    "time_to_60": 105.51007556915283,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 52.459016393442624,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 81.45672988891602,
+    "mission_complete_time": null,
+    "peer_emergency_count": 19,
+    "min_peer_separation_mm": 141.98471626642822,
+    "min_wall_clearance_mm": 64.00308570942013,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        9,
+        6
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t4",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 4,
+    "seed": 4000,
+    "final_coverage": 78.68852459016394,
+    "time_to_50": 55.37252116203308,
+    "time_to_60": 78.36336755752563,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 63.114754098360656,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 36.742247104644775,
+    "mission_complete_time": null,
+    "peer_emergency_count": 17,
+    "min_peer_separation_mm": 181.56997767714753,
+    "min_wall_clearance_mm": 98.19425849731772,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        10,
+        4
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t6",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 6,
+    "seed": 6000,
+    "final_coverage": 70.49180327868852,
+    "time_to_50": 78.74418663978577,
+    "time_to_60": 103.39192152023315,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 53.278688524590166,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 43.6329984664917,
+    "mission_complete_time": null,
+    "peer_emergency_count": 13,
+    "min_peer_separation_mm": 217.28763283744533,
+    "min_wall_clearance_mm": 100.00215279654208,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        12,
+        3
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t8",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 8,
+    "seed": 8000,
+    "final_coverage": 76.22950819672131,
+    "time_to_50": 65.97624969482422,
+    "time_to_60": 92.60805106163025,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 59.01639344262295,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 38.03751039505005,
+    "mission_complete_time": null,
+    "peer_emergency_count": 25,
+    "min_peer_separation_mm": 142.86999661383945,
+    "min_wall_clearance_mm": 110.00000255429966,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        10,
+        1
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t10",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 10,
+    "seed": 10000,
+    "final_coverage": 74.59016393442623,
+    "time_to_50": 62.919973373413086,
+    "time_to_60": 97.12441158294678,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 58.19672131147541,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 41.494789361953735,
+    "mission_complete_time": null,
+    "peer_emergency_count": 31,
+    "min_peer_separation_mm": 142.86536345240253,
+    "min_wall_clearance_mm": 84.34861603648551,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        14,
+        8
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t2",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 2,
+    "seed": 2000,
+    "final_coverage": 73.77049180327869,
+    "time_to_50": 52.354716539382935,
+    "time_to_60": 81.33538031578064,
+    "time_to_80": null,
+    "time_to_detection": 60.67865824699402,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 40.703426361083984,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 63.114754098360656,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.049038648605347,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.024205684661865,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 31.541053295135498,
+    "mission_complete_time": null,
+    "peer_emergency_count": 19,
+    "min_peer_separation_mm": 141.60675395216234,
+    "min_wall_clearance_mm": 100.00016693298669,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        14,
+        4
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t4",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 4,
+    "seed": 4000,
+    "final_coverage": 72.1311475409836,
+    "time_to_50": 59.05574035644531,
+    "time_to_60": 88.76231336593628,
+    "time_to_80": null,
+    "time_to_detection": 92.81844639778137,
+    "time_to_first_suspicion": 0.2,
+    "time_to_detection_2": 72.7862901687622,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 60.65573770491803,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.009341716766357,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.041489839553833,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 39.18671894073486,
+    "mission_complete_time": null,
+    "peer_emergency_count": 30,
+    "min_peer_separation_mm": 166.76678865273874,
+    "min_wall_clearance_mm": 106.25923657555434,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        14,
+        10
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t6",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 6,
+    "seed": 6000,
+    "final_coverage": 86.0655737704918,
+    "time_to_50": 57.91333031654358,
+    "time_to_60": 75.29378771781921,
+    "time_to_80": 107.62653088569641,
+    "time_to_detection": 50.845540046691895,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 30.851393461227417,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 72.1311475409836,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.018996715545654,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.013113498687744,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 37.062384605407715,
+    "mission_complete_time": null,
+    "peer_emergency_count": 13,
+    "min_peer_separation_mm": 142.04663073881184,
+    "min_wall_clearance_mm": 91.49553415003265,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        12,
+        6
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t8",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 8,
+    "seed": 8000,
+    "final_coverage": 77.04918032786885,
+    "time_to_50": 60.978638887405396,
+    "time_to_60": 78.59469676017761,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 66.39344262295081,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.011251449584961,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.03161883354187,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 16.376489400863647,
+    "mission_complete_time": null,
+    "peer_emergency_count": 25,
+    "min_peer_separation_mm": 190.25326776870588,
+    "min_wall_clearance_mm": 74.45209318674347,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        4,
+        8
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t10",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 10,
+    "seed": 10000,
+    "final_coverage": 75.40983606557377,
+    "time_to_50": 55.184404373168945,
+    "time_to_60": 78.8300154209137,
+    "time_to_80": null,
+    "time_to_detection": 106.88066983222961,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 86.84540224075317,
+    "num_leader_changes": 2,
+    "false_positives": 0,
+    "coverage_at_90s": 64.75409836065575,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.011362791061401,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.04664182662964,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 16.205106496810913,
+    "mission_complete_time": null,
+    "peer_emergency_count": 31,
+    "min_peer_separation_mm": 203.58861571050332,
+    "min_wall_clearance_mm": 100.00008176662861,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        12,
+        8
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        6
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t1",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 1,
+    "seed": 1000,
+    "final_coverage": 78.68852459016394,
+    "time_to_50": 46.28339910507202,
+    "time_to_60": 79.39342045783997,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 64.75409836065575,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 18.039473056793213,
+    "mission_complete_time": null,
+    "peer_emergency_count": 19,
+    "min_peer_separation_mm": 173.4492501380428,
+    "min_wall_clearance_mm": 100.00002097579588,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        12,
+        8
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        12,
+        9
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t3",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 3,
+    "seed": 3000,
+    "final_coverage": 72.95081967213115,
+    "time_to_50": 58.184823751449585,
+    "time_to_60": 91.97762322425842,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 59.01639344262295,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 39.750136852264404,
+    "mission_complete_time": null,
+    "peer_emergency_count": 22,
+    "min_peer_separation_mm": 180.02645361535974,
+    "min_wall_clearance_mm": 100.00000586555049,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        14,
+        10
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t5",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 5,
+    "seed": 5000,
+    "final_coverage": 54.91803278688525,
+    "time_to_50": 98.4085009098053,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 47.540983606557376,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 91.84282112121582,
+    "mission_complete_time": null,
+    "peer_emergency_count": 13,
+    "min_peer_separation_mm": 137.24290795223374,
+    "min_wall_clearance_mm": 100.00006215306837,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        11,
+        5
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t7",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 7,
+    "seed": 7000,
+    "final_coverage": 79.50819672131148,
+    "time_to_50": 38.191123485565186,
+    "time_to_60": 57.32227373123169,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 68.85245901639344,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 18.132195472717285,
+    "mission_complete_time": null,
+    "peer_emergency_count": 25,
+    "min_peer_separation_mm": 146.30628538911157,
+    "min_wall_clearance_mm": 100.00004511987726,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        13,
+        8
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_Clean_t9",
+    "controller": "reip",
+    "fault_type": null,
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 9,
+    "seed": 9000,
+    "final_coverage": 63.114754098360656,
+    "time_to_50": 90.72005367279053,
+    "time_to_60": 107.82382345199585,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": null,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 49.18032786885246,
+    "coverage_timeline": [],
+    "fault_schedule_name": null,
+    "fault_events": [],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 76.48831081390381,
+    "mission_complete_time": null,
+    "peer_emergency_count": 31,
+    "min_peer_separation_mm": 142.5182624137027,
+    "min_wall_clearance_mm": 64.00002168631363,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        11,
+        6
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t1",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 1,
+    "seed": 1000,
+    "final_coverage": 59.83606557377049,
+    "time_to_50": 87.05301976203918,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": 80.76769495010376,
+    "time_to_first_suspicion": 0.8,
+    "time_to_detection_2": 60.77189540863037,
+    "num_leader_changes": 7,
+    "false_positives": 0,
+    "coverage_at_90s": 50.81967213114754,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.009153127670288,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.004897117614746,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 84.06278324127197,
+    "mission_complete_time": null,
+    "peer_emergency_count": 19,
+    "min_peer_separation_mm": 142.2881371173876,
+    "min_wall_clearance_mm": 98.65426443770525,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        9,
+        1
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t3",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 3,
+    "seed": 3000,
+    "final_coverage": 48.36065573770492,
+    "time_to_50": null,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": 0.3,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 43.44262295081967,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.009296178817749,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.043780088424683,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": null,
+    "mission_complete_time": null,
+    "peer_emergency_count": 17,
+    "min_peer_separation_mm": 140.78240298027487,
+    "min_wall_clearance_mm": 64.00008537499559,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        10
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t5",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 5,
+    "seed": 5000,
+    "final_coverage": 59.01639344262295,
+    "time_to_50": 77.5680046081543,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": 0.2,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 51.63934426229508,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.02928876876831,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.02663016319275,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 31.735967874526978,
+    "mission_complete_time": null,
+    "peer_emergency_count": 13,
+    "min_peer_separation_mm": 157.13642691571536,
+    "min_wall_clearance_mm": 64.00061814846003,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        3,
+        10
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t7",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 7,
+    "seed": 7000,
+    "final_coverage": 54.91803278688525,
+    "time_to_50": 103.1157557964325,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": 0.8,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 47.540983606557376,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.016895532608032,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.007835626602173,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 103.83841443061829,
+    "mission_complete_time": null,
+    "peer_emergency_count": 25,
+    "min_peer_separation_mm": 140.6044983167037,
+    "min_wall_clearance_mm": 97.43300357081921,
+    "coverage_order": [
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        11,
+        7
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_BL_t9",
+    "controller": "reip",
+    "fault_type": "bad_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 9,
+    "seed": 9000,
+    "final_coverage": 79.50819672131148,
+    "time_to_50": 61.256855964660645,
+    "time_to_60": 84.81267261505127,
+    "time_to_80": null,
+    "time_to_detection": 20.633591890335083,
+    "time_to_first_suspicion": 0.2,
+    "time_to_detection_2": 0.6200757026672363,
+    "num_leader_changes": 11,
+    "false_positives": 0,
+    "coverage_at_90s": 63.934426229508205,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.009346008300781,
+        "fault_type": "bad_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.022947788238525,
+        "fault_type": "bad_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 50.830923557281494,
+    "mission_complete_time": null,
+    "peer_emergency_count": 31,
+    "min_peer_separation_mm": 187.87851479631794,
+    "min_wall_clearance_mm": 72.04515379027407,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        13,
+        2
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t1",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 1,
+    "seed": 1000,
+    "final_coverage": 61.47540983606557,
+    "time_to_50": 75.06105279922485,
+    "time_to_60": 106.88821935653687,
+    "time_to_80": null,
+    "time_to_detection": 80.79758286476135,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 60.795477867126465,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 56.557377049180324,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.002090215682983,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.004149913787842,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 64.5244414806366,
+    "mission_complete_time": null,
+    "peer_emergency_count": 19,
+    "min_peer_separation_mm": 141.80426226651207,
+    "min_wall_clearance_mm": 101.82402693422691,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        12,
+        3
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t3",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 3,
+    "seed": 3000,
+    "final_coverage": 68.85245901639344,
+    "time_to_50": 52.54515218734741,
+    "time_to_60": 95.00683903694153,
+    "time_to_80": null,
+    "time_to_detection": 44.5205340385437,
+    "time_to_first_suspicion": 0.2,
+    "time_to_detection_2": 24.533403635025024,
+    "num_leader_changes": 6,
+    "false_positives": 0,
+    "coverage_at_90s": 59.83606557377049,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.049556732177734,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.036623239517212,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 44.10223603248596,
+    "mission_complete_time": null,
+    "peer_emergency_count": 17,
+    "min_peer_separation_mm": 157.57449062902933,
+    "min_wall_clearance_mm": 100.00492799753513,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        13,
+        1
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t5",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 5,
+    "seed": 5000,
+    "final_coverage": 68.85245901639344,
+    "time_to_50": 56.79581832885742,
+    "time_to_60": 86.30860042572021,
+    "time_to_80": null,
+    "time_to_detection": 50.65349745750427,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 30.678669452667236,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 60.65573770491803,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.033667087554932,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.008521556854248,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 43.60410714149475,
+    "mission_complete_time": null,
+    "peer_emergency_count": 13,
+    "min_peer_separation_mm": 137.48586751472726,
+    "min_wall_clearance_mm": 110.00040373123807,
+    "coverage_order": [
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        13,
+        3
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t7",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 7,
+    "seed": 7000,
+    "final_coverage": 54.09836065573771,
+    "time_to_50": 107.56417870521545,
+    "time_to_60": null,
+    "time_to_80": null,
+    "time_to_detection": null,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": null,
+    "num_leader_changes": 0,
+    "false_positives": 0,
+    "coverage_at_90s": 49.18032786885246,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.014948844909668,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.023528814315796,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 108.54752087593079,
+    "mission_complete_time": null,
+    "peer_emergency_count": 25,
+    "min_peer_separation_mm": 142.82950351453405,
+    "min_wall_clearance_mm": 110.00150123727872,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        8
+      ]
+    ]
+  },
+  {
+    "name": "multiroom_reip_Reactive_FL_t9",
+    "controller": "reip",
+    "fault_type": "freeze_leader",
+    "fault_robot": 1,
+    "layout": "multiroom",
+    "trial": 9,
+    "seed": 9000,
+    "final_coverage": 72.95081967213115,
+    "time_to_50": 55.9072425365448,
+    "time_to_60": 78.79233193397522,
+    "time_to_80": null,
+    "time_to_detection": 42.4864706993103,
+    "time_to_first_suspicion": 0.1,
+    "time_to_detection_2": 22.458160877227783,
+    "num_leader_changes": 5,
+    "false_positives": 0,
+    "coverage_at_90s": 60.65573770491803,
+    "coverage_timeline": [],
+    "fault_schedule_name": "default",
+    "fault_events": [
+      {
+        "index": 1,
+        "scheduled_time_s": 10,
+        "actual_elapsed_s": 10.013892889022827,
+        "fault_type": "freeze_leader",
+        "target_mode": "fixed_robot",
+        "target_robot": 1,
+        "label": "Fault 1"
+      },
+      {
+        "index": 2,
+        "scheduled_time_s": 30,
+        "actual_elapsed_s": 30.042168140411377,
+        "fault_type": "freeze_leader",
+        "target_mode": "current_leader",
+        "target_robot": 1,
+        "label": "Fault 2"
+      }
+    ],
+    "ablation": "reactive",
+    "leader_settle_time": 0.0,
+    "divider_crossing_time": 36.8047821521759,
+    "mission_complete_time": null,
+    "peer_emergency_count": 31,
+    "min_peer_separation_mm": 188.51040559289575,
+    "min_wall_clearance_mm": 102.14815232072613,
+    "coverage_order": [
+      [
+        1,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        13,
+        10
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        12,
+        8
+      ]
+    ]
+  }
+]
