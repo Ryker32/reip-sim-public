@@ -1359,6 +1359,37 @@ class REIPNode:
                 reasons.append(f"cmd_instability(omega={omega:.2f})")
         
         # ===== UPDATE SUSPICION =====
+        # ===== ABLATION: reactive - defer evidence until command executed =====
+        # Reactive baseline: identical evidence, weights, thresholds, and
+        # impeachment machinery as proactive REIP, but suspicion is applied
+        # only AFTER the robot has fully executed the command (arrival at the
+        # assigned target).  The robot pays the full travel cost before the
+        # evidence counts -- modeling reactive outcome-based detection.
+        if getattr(self, '_ablation_reactive', False):
+            self._reactive_pending = {
+                'target': target,
+                'suspicion': suspicion_added,
+                'reasons': list(reasons),
+                'omega': omega,
+            }
+            return
+        self._apply_suspicion_update(suspicion_added, reasons, omega)
+
+    def _apply_reactive_outcome(self, target):
+        """Apply deferred evidence for a leader command that has now been
+        fully executed (reactive ablation mode only)."""
+        pending = getattr(self, '_reactive_pending', None)
+        if not pending or pending['target'] != target:
+            return
+        self._reactive_pending = None
+        print(f"[TRUST-REACTIVE] Command executed (arrived at {target}); "
+              f"applying deferred evidence: +{pending['suspicion']:.2f}")
+        self._apply_suspicion_update(pending['suspicion'], pending['reasons'],
+                                     pending['omega'])
+
+    def _apply_suspicion_update(self, suspicion_added, reasons, omega):
+        """Shared suspicion/trust update used by both proactive assessment
+        (per broadcast) and the reactive ablation (per executed command)."""
         if suspicion_added > 0:
             self.suspicion_of_leader += suspicion_added
             self.bad_commands_received += 1
@@ -2777,6 +2808,10 @@ class REIPNode:
             if self.state == RobotState.LEADER:
                 self.my_assigned_target = None
             if self.leader_assigned_target == target:
+                # Reactive ablation: the command has now been fully executed,
+                # so its deferred evidence can finally be applied.
+                if getattr(self, '_ablation_reactive', False):
+                    self._apply_reactive_outcome(target)
                 self.leader_assigned_target = None
 
         # Clamp target outside the wall-slide zone so the robot never
@@ -3289,6 +3324,7 @@ if __name__ == "__main__":
         print("       no_causality  - Set causality grace period to 0 (expect false positives)")
         print("       no_direction  - Disable MPC direction consistency check")
         print("       no_instability - Disable command instability (omega) check")
+        print("       reactive      - Defer evidence until command executed (reactive baseline)")
         sys.exit(1)
     
     robot_id = int(sys.argv[1])
@@ -3311,7 +3347,7 @@ if __name__ == "__main__":
     if "--ablation" in sys.argv:
         idx = sys.argv.index("--ablation")
         ablation_mode = sys.argv[idx + 1]
-        valid_modes = ("no_trust", "no_causality", "no_direction", "no_instability")
+        valid_modes = ("no_trust", "no_causality", "no_direction", "no_instability", "reactive")
         if ablation_mode not in valid_modes:
             print(f"ERROR: Unknown ablation mode '{ablation_mode}'. Valid: {valid_modes}")
             sys.exit(1)
@@ -3351,6 +3387,13 @@ if __name__ == "__main__":
         print(f"=== ABLATION: no_instability -- Command instability (omega) check DISABLED ===")
     else:
         node._ablation_no_instability = False
+
+    if ablation_mode == "reactive":
+        node._ablation_reactive = True
+        node._reactive_pending = None
+        print(f"=== ABLATION: reactive -- evidence deferred until command execution ===")
+    else:
+        node._ablation_reactive = False
     
     if "--decentralized" in sys.argv:
         node.decentralized_mode = True
