@@ -18,6 +18,18 @@ This repository contains the complete simulation harness, hardware software stac
 - **Proactive vs. reactive.** A reactive twin of REIP (identical trust machinery, evidence applied only after command execution) detects only 47–54% of faults, at median latencies of 62–81 s, in a paired same-build, same-seed comparison.
 - **Hardware transfer.** On five custom $84.56 robots, REIP sustains 86.5–91.0% coverage across all fault types while Raft falls to 52.1–61.9%.
 
+## How REIP Works
+
+Every leader command is verified before execution against three confidence-ranked evidence tiers, plus direction-consistency and command-instability checks; violations accumulate weighted suspicion in a per-follower trust ledger.
+
+![Leader command verification pipeline: command instability, direction consistency, and three-tier evidence feeding the trust ledger](docs/media/leader_command_verification.png)
+
+When any follower's trust in the leader falls below threshold, the team votes: majority impeachment, then merit-based election of the replacement.
+
+![Democratic recovery: impeach, vote, elect](docs/media/democratic_recovery.png)
+
+Individual diagrams for each check are in `docs/media/`; robot CAD drawings are in `REIP_Supplemental/hardware/cad/`.
+
 ## Repository Structure
 
 ```

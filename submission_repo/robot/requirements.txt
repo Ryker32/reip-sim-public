@@ -1,7 +1,0 @@
-# REIP Robot - Pi Zero 2W Dependencies
-# Install with: pip3 install -r requirements.txt --break-system-packages
-
-pyserial>=3.5
-smbus2>=0.4.0
-adafruit-circuitpython-vl53l0x>=3.6.0
-adafruit-blinka>=8.0.0

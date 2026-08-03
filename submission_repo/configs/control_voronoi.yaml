@@ -1,5 +1,0 @@
-name: controls/voronoi
-policy: voronoi
-T: 200
-N: 20
-map_size: 30

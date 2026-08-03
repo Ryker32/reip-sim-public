@@ -1,6 +1,0 @@
-name: controls/greedy_fixed
-policy: src.policy.frontier.assign_frontiers_greedy
-T: 600
-N: 10
-map_size: 40
-lam: 1.0
