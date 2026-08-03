@@ -4,7 +4,7 @@ Trust-based governance for multi-robot exploration: follower robots verify every
 
 ![Five REIP robots detecting a faulted leader and electing a replacement](docs/media/reip_hardware_snapshot.png)
 
-*Hardware trial sequence: (left) normal leader-follower exploration; (center) the leader is compromised and issues conflicting commands; (right) the team impeaches it, elects a new leader, and the mission stabilizes.*
+*Overhead-camera frames from a hardware trial (coverage cells and command arrows rendered as overlay): (left) normal leader-follower exploration; (center) the leader is compromised and issues conflicting commands; (right) the team impeaches it, elects a new leader, and the mission stabilizes.*
 
 This repository contains the complete simulation harness, hardware software stack, raw experiment data, and analysis scripts for the paper:
 

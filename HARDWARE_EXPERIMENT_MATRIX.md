@@ -1,4 +1,11 @@
-# Hardware Experiment Matrix - COMPLETE CHECKLIST
+# [ARCHIVED WORKING NOTES] Hardware Experiment Matrix
+
+> **This is a planning checklist from partway through the hardware campaign and is
+> retained only for provenance. The coverage/speed/detection numbers below are
+> interim values from early trials and are superseded by the final results in the
+> paper's Table III, which were computed from the complete trial logs in `trials/`.
+> The bad-leader hardware condition flagged as missing below was subsequently run
+> and is included in the final results.**
 
 ## Current Status in Paper (Table 2)
 
