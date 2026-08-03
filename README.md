@@ -1,242 +1,65 @@
-# REIP Multi-Agent Exploration System
+# REIP: Resilient Election and Impeachment Policy
 
-A research project implementing and evaluating **REIP** (Trust-based Election/Impeachment Protocol) for resilient multi-agent exploration under adversarial conditions.
+Trust-based governance for multi-robot exploration: follower robots verify every leader command against local evidence *before executing it*, accumulate confidence-weighted suspicion, and democratically impeach and replace a compromised leader.
 
-##  Research Overview
+![Five REIP robots detecting a faulted leader and electing a replacement](docs/media/reip_hardware_snapshot.png)
 
-This project compares REIP against traditional fixed-leader systems in multi-agent exploration scenarios with:
-- **Communication faults** (packet loss, corruption, limited range)
-- **Byzantine behavior** (hallucinations, malicious actions)
-- **Dynamic leadership** through trust-based governance
+*Hardware trial sequence: (left) normal leader-follower exploration; (center) the leader is compromised and issues conflicting commands; (right) the team impeaches it, elects a new leader, and the mission stabilizes.*
 
-**Key Finding**: REIP demonstrates **8.1% better coverage** under extreme adversarial conditions (8% hallucination rate, 20% command loss).
+This repository contains the complete simulation harness, hardware software stack, raw experiment data, and analysis scripts for the paper:
 
-##  Repository Structure
+> **Proactive Trust-Based Detection and Impeachment of Compromised Leaders in Multi-Robot Exploration**
+> W. R. Kollmyer. Submitted to the IEEE MIT Undergraduate Research Technology Conference (URTC), 2026.
+
+## Key Results
+
+- **Fault-invariant coverage.** Across N=100 simulation trials per condition, REIP holds 100% median coverage under clean, Byzantine bad-leader, and freeze-leader conditions (median resilience gap 0.0 pp). Raft's median collapses to 72.7% (bad-leader) and 60.4% (freeze-leader).
+- **Fast detection.** 97–99% of injected faults detected, median first suspicion 0.20–0.21 s, median impeachment 1.21–1.67 s, consistent with the closed-form two-command detection bound.
+- **Proactive vs. reactive.** A reactive twin of REIP (identical trust machinery, evidence applied only after command execution) detects only 47–54% of faults, at median latencies of 62–81 s, in a paired same-build, same-seed comparison.
+- **Hardware transfer.** On five custom $84.56 robots, REIP sustains 86.5–91.0% coverage across all fault types while Raft falls to 52.1–61.9%.
+
+## Repository Structure
 
 ```
-├── docs/                          #  Research Documentation
-│   ├── BENCHMARK_SUMMARY.md       # Statistical analysis results
-│   ├── IMPLEMENTATION_COMPLETE.md # Complete feature list
-│   ├── CITATIONS.md               # Academic references
-│   ├── REAL_WORLD_BENCHMARKS.md   # Real-world validation
-│   ├── IMPACT_STRATEGY.md         # Research impact plan
-│   ├── FUTURE_EXPERIMENTS.md      # Next research directions
-│   ├── T1000_BENCHMARK.md         # Large-scale experiments
-│   ├── DEBUGGING_ROOT_CAUSE.md    # Technical debugging notes
-│   └── references.bib             # Bibliography
-├── src/                           #  Core Implementation
-│   ├── main.py                    # Main simulation entry point
-│   ├── agents/                    # Agent implementations
-│   ├── policy/                    # REIP and baseline policies
-│   ├── comms/                     # Communication/fault models
-│   ├── env/                       # Grid environment
-│   └── utils/                     # Utility functions
-├── configs/                       #  Experiment Configurations
-│   ├── reip_*.yaml               # REIP system configs
-│   └── baseline_*.yaml           # Baseline system configs
-├── scripts/                       #  Analysis Scripts
-│   ├── compare_reip_vs_baseline.py
-│   ├── collect_metrics.py
-│   └── plot_metrics.py
-├── results/                       #  Experimental Results
-│   ├── benchmark_results_*.csv    # Raw benchmark data
-│   ├── optimal_benchmark_*.csv    # Optimized runs
-│   └── *.png                     # Visualization plots
-├── archive/                       #  Legacy/Development Files
-│   ├── run_benchmark_*.py        # Old benchmark scripts
-│   └── validate_*.py             # Validation utilities
-├── runs/                         #  Simulation Output
-└── tools/                        #  Development Tools
+├── robot/                  # REIP node software (runs on each robot / sim process)
+│   ├── reip_node.py        # Three-tier trust, causality gating, impeachment, election
+│   └── baselines/          # Raft and decentralized baseline controllers
+├── coordinator/            # Overhead ArUco localization service (position only)
+├── test/
+│   ├── isef_experiments.py           # Experiment harness (simulation campaigns)
+│   ├── analyze_paired_reactive.py    # Paired proactive-vs-reactive analysis
+│   └── _generate_paper_figures.py    # Regenerates paper figures from raw data
+├── experiments/            # Raw campaign results (JSON per run, incl. paper campaigns)
+├── trials/                 # Per-robot JSONL logs from hardware trials
+├── pico/                   # Raspberry Pi Pico motor-controller firmware
+├── pc/                     # Operator-side utilities
+├── REIP_Supplemental/      # Reproduction package
+│   ├── README.md           # Step-by-step figure/table reproduction instructions
+│   ├── seeds/seeds.json    # Exact seeds for all campaigns
+│   └── hardware/           # Bill of materials, CAD drawings, ArUco markers
+└── src/, configs/          # Legacy gridworld prototype (superseded; kept for history)
 ```
 
-##  Quick Start
+## Reproducing the Paper's Experiments
 
-### Running Core Simulations
-```bash
-# Basic REIP vs Baseline comparison
-python src/main.py --config configs/reip_adversarial.yaml
-python src/main.py --config configs/baseline_adversarial.yaml
-
-# Visual simulation with real-time plotting
-python run_with_viz.py
-python visualize_sim.py
-```
-
-### Generating Research Results
-```bash
-# Statistical comparison analysis
-python scripts/compare_reip_vs_baseline.py
-
-# Collect performance metrics
-python scripts/collect_metrics.py
-
-# Generate publication plots
-python scripts/plot_metrics.py
-```
-
-##  Key Results
-
-| Metric | Baseline | REIP | Improvement |
-|--------|----------|------|-------------|
-| **Coverage** | 17.9% +/- 2.1% | **19.4% +/- 3.3%** | **+8.1%** |
-| **Success Rate** | 40% | **60%** | **+50%** |
-| **Elections** | 0 | 28.9 +/- 0.7 | Adaptive |
-
-*Under extreme adversarial conditions: 8% hallucination, 20% command loss*
-
-##  Academic Context
-
-### Core Technologies
-- **Trust-based Governance**: Dynamic leader election/impeachment
-- **Byzantine Fault Tolerance**: Resilience to malicious agents
-- **Communication Fault Models**: Realistic network conditions
-- **Comparative Analysis**: Statistical validation vs baselines
-
-### Citations
-39 academic sources documented in `docs/CITATIONS.md`, including:
-- Lamport et al. (Byzantine consensus)
-- García-Camino (distributed election)
-- Amodei et al. (AI safety/hallucinations)
-- Simmons et al. (centralized coordination)
-
-##  Research Impact
-
-This work addresses critical challenges in:
-- **Autonomous vehicle coordination** under GPS jamming
-- **Drone swarm exploration** with communication interference
-- **Robot team resilience** against adversarial attacks
-- **Multi-agent AI safety** for real-world deployment
-
-##  Experimental Validation
-
-- **Statistical rigor**: 10+ trials per configuration
-- **Realistic faults**: Based on empirical network studies
-- **Comparative methodology**: Direct baseline comparison
-- **Reproducible results**: Documented configurations and seeds
-
-##  Future Directions
-
-See `docs/FUTURE_EXPERIMENTS.md` for detailed research roadmap including:
-- Heterogeneous agent capabilities
-- Dynamic environment adaptation
-- Real-world hardware validation
-- Scalability to 100+ agents
-
----
-
-**Status**: Implementation Complete [x] | Statistical Validation Complete [x] | Ready for Publication 
- 
-##  Initialization-with-Command and Spawn Configuration
-
-To prevent early stagnation when commands are lost, the REIP controller seeds every agent with an initial goal at t=0 and uses a persistent hold mechanism:
-
-- env.min_hold: Number of timesteps an agent keeps its current goal before being eligible for reassignment (default 3; configurable at top level or in env).
-- Agent.hold_target / hold_timer: Per-agent fields that persist the current goal across ticks.
-- reip.command_loss_rate: Probability a leader command is dropped (1.0 = all commands dropped).
-- reip.command_radius: Maximum range for commands from the leader.
-
-This works with belief-based navigation; even with full command loss, agents keep moving toward their held goals for at least min_hold steps.
-
-Spawn clustering options help create consistent early exploration dynamics:
-
-- env.spawn_box: [x0, y0, x1, y1] restricts initial positions to a box.
-- env.spawn_center: [x, y] and env.spawn_radius: r restrict initial positions to a Chebyshev-radius box.
-
-Example YAML snippet:
-
-```yaml
-N: 6
-map_size: 30
-min_hold: 5
-env:
-	obstacle_density: 0.05
-	seed: 123
-	spawn_box: [2, 2, 8, 8]
-agent:
-	r_local: 8
-	downsample: 4
-reip:
-	command_loss_rate: 1.0   # drop all commands to test persistence
-	command_radius: 10
-	trust_decay_rate: 0.5
-	trust_threshold: 0.6
-	min_trust: 0.1
-```
-
-Run a quick simulation with visualization:
+Simulation campaigns (see `REIP_Supplemental/README.md` for full instructions):
 
 ```powershell
-python -m src.main --config configs\reip_true.yaml --visualize
+# REIP / Raft / Decentralized under clean, bad-leader, freeze-leader (N=100 each)
+python test\isef_experiments.py --layout multiroom --trials 100 --workers 20
+
+# Paired reactive-vs-proactive comparison (same build, same seeds)
+python test\isef_experiments.py --layout multiroom --trials 100 --ablation --condition Reactive --workers 20
+python test\isef_experiments.py --layout multiroom --trials 100 --condition reip --workers 20
+python test\analyze_paired_reactive.py <proactive_results.json> <reactive_results.json>
 ```
 
-Run the unit test that verifies persistent movement under full command loss:
+Every statistic in the paper's tables traces to a results JSON in `experiments/` or a trial log in `trials/`. The paper campaigns are `run_20260228_014625` (main coverage + detection), `run_20260228_135632` (freeze-leader), `run_20260228_102956` (ablation), and `run_20260731_233210` / `run_20260801_000344` (reactive comparison).
 
-```powershell
-python tests\test_init_with_command.py
-```
+## Hardware Platform
 
-See also docs/CONFIG_SPAWN_AND_COMMANDS.md for more examples.
+Five custom differential-drive robots: Raspberry Pi Zero 2W + Pico, dual N20 encoded motors, five VL53L0X time-of-flight sensors on an I2C multiplexer, overhead ArUco localization. $84.56 per robot (~$514 total including the shared camera). Full bill of materials in `REIP_Supplemental/hardware/bom.csv`; CAD drawings in `REIP_Supplemental/hardware/cad/`.
 
-##  Connectivity-aware assignment and regional diversity
+## Citing
 
-To maintain a relay backbone and reduce clustering, the frontier assignment can:
-
-- Reward staying within command/comm range of at least two teammates.
-- Limit how many agents can be assigned to the same coarse region per tick.
-
-Key knobs (under `reip:`):
-
-- `connectivity_beta` (float): Strength of the bonus for being within `command_radius` of teammates (0.0 disables).
-- `region_size` (int, optional): Coarse grid size used to bucket frontiers into regions; if omitted, it auto-scales from `prox_radius`.
-- `region_capacity` (int): Max agents assigned per region in a single tick (default 1).
-
-Example:
-
-```yaml
-reip:
-	command_radius: 15
-	connectivity_beta: 0.8
-	prox_radius: 6
-	region_size: 8
-	region_capacity: 1
-```
-
-Tip: Align `command_radius` with your communication radius for consistent behavior when using connectivity bonuses.
-
-##  Motion-level deconfliction knobs
-
-The environment applies soft deconfliction to reduce criss-crossing and oscillations:
-
-- `env.neighbor_proximity_radius` (int): Penalize steps that move close to nearby agents within this Chebyshev radius.
-- `env.neighbor_repulsion` (float): Strength of proximity repulsion (added cost scales as 1/distance).
-- `env.reservation_penalty` (float): Extra cost for moving into a cell reserved earlier that tick by another agent.
-
-Example:
-
-```yaml
-env:
-	neighbor_proximity_radius: 2
-	neighbor_repulsion: 0.6
-	reservation_penalty: 3.0
-```
-
-These are soft costs layered on top of A*'s move cost; they reduce path crossings without freezing agents.
-
-## How to cite
-
-If you use this repository in academic work, please cite it and the foundational methods. A `CITATION.cff` file is included for GitHub's citation widget.
-
-Example (APA):
-
-Ryker, [Your First Name]. (2025). REIP: Resilient Election & Impeachment Policy for Multi-Agent Exploration (v0.1.0) [Computer software]. https://github.com/Ryker32/reip-sim
-
-Key references underpinning components:
-
-- Frontier exploration: Yamauchi, B. (1997). A Frontier-Based Approach for Autonomous Exploration. IEEE CIRA.
-- Information theory: Shannon, C. E. (1948). A Mathematical Theory of Communication. Bell Syst. Tech. J.
-- Pathfinding: Hart, Nilsson, Raphael (1968). A Formal Basis for the Heuristic Determination of Minimum Cost Paths. IEEE.
-- Line-of-sight: Bresenham, J. E. (1965). Algorithm for computer control of a digital plotter. IBM Systems Journal.
-- Bursty comms: Gilbert (1960); Elliott (1963). Bell System Technical Journal.
-- Byzantine/fault-tolerance background: Lamport et al. (1982); Castro & Liskov (1999).
-
-See `ATTRIBUTIONS.md` for a consolidated list.
+If you use this repository, please cite the URTC 2026 paper above (citation details will be updated upon publication).
