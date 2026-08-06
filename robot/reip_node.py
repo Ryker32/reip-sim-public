@@ -212,22 +212,24 @@ TRUST_THRESHOLD = 0.5        # Below = untrusted for voting
 IMPEACHMENT_THRESHOLD = 0.3  # Below = vote to impeach
 
 # ============== Provable Worst-Case Detection Bounds ==============
-# These bounds are a novel contribution of REIP.  Under persistent fault,
-# suspicion accumulates at rate (w - r) per bad command, where w is the
-# evidence weight and r is RECOVERY_RATE.  This is a fixed-increment
-# threshold test applied to trust.
+# These bounds are a novel contribution of REIP.  Under persistent fault
+# (every command flagged), decay never applies: RECOVERY_RATE is subtracted
+# only on cleanly verifying commands (see _apply_suspicion_update), so each
+# flagged command adds exactly its evidence weight w.
 # Detection (first trust decay) occurs when suspicion >= SUSPICION_THRESHOLD.
 #
-# Tier 1 (personal_visited): ceil(1.5 / (1.0 - 0.1)) = ceil(1.67) = 2 commands
-# Tier 3 (peer_reported):    ceil(1.5 / (0.3 - 0.1)) = ceil(7.5)  = 8 commands
+# Tier 1 (personal_visited): ceil(1.5 / 1.0) = 2 commands
+# Tier 3 (peer_reported):    ceil(1.5 / 0.3) = 5 commands
 #
 # Full impeachment requires trust to drop from 1.0 to IMPEACHMENT_THRESHOLD (0.3).
 # Each threshold crossing decays trust by TRUST_DECAY_RATE (0.2).
 # Need ceil((1.0 - 0.3) / 0.2) = 4 threshold crossings.
-# Worst case (all Tier 3): 4 * 8 = 32 commands to impeachment.
+# Worst case (all Tier 3): 4 * 5 = 20 commands to impeachment.
 # Best case (all Tier 1):  4 * 2 = 8 commands to impeachment.
-WORST_CASE_DETECT_T1 = math.ceil(SUSPICION_THRESHOLD / (WEIGHT_PERSONAL - RECOVERY_RATE))
-WORST_CASE_DETECT_T3 = math.ceil(SUSPICION_THRESHOLD / (WEIGHT_PEER - RECOVERY_RATE))
+# An adversary interleaving clean commands regains only RECOVERY_RATE per
+# clean command, so accumulation dominates whenever w > RECOVERY_RATE.
+WORST_CASE_DETECT_T1 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PERSONAL)
+WORST_CASE_DETECT_T3 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PEER)
 THRESHOLD_CROSSINGS_TO_IMPEACH = math.ceil((1.0 - IMPEACHMENT_THRESHOLD) / TRUST_DECAY_RATE)
 WORST_CASE_IMPEACH_T1 = THRESHOLD_CROSSINGS_TO_IMPEACH * WORST_CASE_DETECT_T1
 WORST_CASE_IMPEACH_T3 = THRESHOLD_CROSSINGS_TO_IMPEACH * WORST_CASE_DETECT_T3
