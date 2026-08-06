@@ -226,8 +226,10 @@ IMPEACHMENT_THRESHOLD = 0.3  # Below = vote to impeach
 # Need ceil((1.0 - 0.3) / 0.2) = 4 threshold crossings.
 # Worst case (all Tier 3): 4 * 5 = 20 commands to impeachment.
 # Best case (all Tier 1):  4 * 2 = 8 commands to impeachment.
-# An adversary interleaving clean commands regains only RECOVERY_RATE per
-# clean command, so accumulation dominates whenever w > RECOVERY_RATE.
+# An adversary interleaving clean commands evades accumulation only if its
+# flagged fraction stays below RECOVERY_RATE / (w + RECOVERY_RATE):
+# 9.1% under Tier-1 evidence, 25% under Tier-3. Below that rate the leader
+# is issuing >90% verifiably clean commands, bounding its misdirection.
 WORST_CASE_DETECT_T1 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PERSONAL)
 WORST_CASE_DETECT_T3 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PEER)
 THRESHOLD_CROSSINGS_TO_IMPEACH = math.ceil((1.0 - IMPEACHMENT_THRESHOLD) / TRUST_DECAY_RATE)
