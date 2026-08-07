@@ -229,7 +229,8 @@ IMPEACHMENT_THRESHOLD = 0.3  # Below = vote to impeach
 # An adversary interleaving clean commands evades accumulation only if its
 # flagged fraction stays below RECOVERY_RATE / (w + RECOVERY_RATE):
 # 9.1% under Tier-1 evidence, 25% under Tier-3. Below that rate the leader
-# is issuing >90% verifiably clean commands, bounding its misdirection.
+# is issuing >75-90% verifiably clean commands (by tier), bounding its
+# misdirection.
 WORST_CASE_DETECT_T1 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PERSONAL)
 WORST_CASE_DETECT_T3 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PEER)
 THRESHOLD_CROSSINGS_TO_IMPEACH = math.ceil((1.0 - IMPEACHMENT_THRESHOLD) / TRUST_DECAY_RATE)
