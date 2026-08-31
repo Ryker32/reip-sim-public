@@ -252,6 +252,27 @@ WORST_CASE_IMPEACH_T1 = math.ceil(
 WORST_CASE_IMPEACH_T3 = math.ceil(
     THRESHOLD_CROSSINGS_TO_IMPEACH * SUSPICION_THRESHOLD / WEIGHT_PEER)
 
+# Leadership actually changes by the ELIGIBILITY path far more often than by the
+# explicit tau_imp vote.  Candidacy requires trust > TRUST_THRESHOLD (0.5), so an
+# incumbent that decays to 0.5 or below stops being electable and the next
+# election installs someone else -- no impeachment vote required.  Reaching that
+# takes ceil((T_0 - TRUST_THRESHOLD) / TRUST_DECAY_RATE) = 3 crossings, one fewer
+# than the 4 needed for tau_imp = 0.3.
+#
+# Measured over the 97 detected bad-leader trials of the 2026-02-28 campaign,
+# 94% of first leadership changes were eligibility-driven and 6% were carried by
+# a tau_imp majority (88%/12% under a worst-case correction for the 5 Hz sampling
+# of the trust traces).  The tau_imp bound below therefore describes the
+# secondary path, not the one the reported detection latencies measure.
+#
+# Tier 1: ceil(3 * 1.5 / 1.0) =  5 commands = 1.0 s at 5 Hz
+# Tier 3: ceil(3 * 1.5 / 0.3) = 15 commands = 3.0 s at 5 Hz
+ELIGIBILITY_CROSSINGS = math.ceil((1.0 - TRUST_THRESHOLD) / TRUST_DECAY_RATE)
+WORST_CASE_REPLACE_T1 = math.ceil(
+    ELIGIBILITY_CROSSINGS * SUSPICION_THRESHOLD / WEIGHT_PERSONAL)
+WORST_CASE_REPLACE_T3 = math.ceil(
+    ELIGIBILITY_CROSSINGS * SUSPICION_THRESHOLD / WEIGHT_PEER)
+
 # Causality grace period: accounts for broadcast delay in distributed system.
 # A cell visited less than this many seconds before the assignment was sent
 # should NOT trigger suspicion, because the leader's map was stale.

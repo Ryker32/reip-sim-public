@@ -27,12 +27,13 @@ import reip_node as rn  # noqa: E402
 def simulate(weight_per_command, n_commands=2000, clean_fraction=0.0):
     """Replay _apply_suspicion_update exactly.
 
-    Returns (commands_to_first_decay, commands_to_impeachment, max_S).
+    Returns (commands_to_first_decay, commands_to_impeachment, max_S,
+    commands_to_ineligibility).
     ``clean_fraction`` spaces cleanly-verifying commands evenly among the
     flagged ones, which is how an adversary would evade accumulation.
     """
     S, T = 0.0, 1.0
-    first_decay = impeachment = None
+    first_decay = impeachment = ineligible = None
     max_S = 0.0
     clean_due = 0.0
     for n in range(1, n_commands + 1):
@@ -54,7 +55,9 @@ def simulate(weight_per_command, n_commands=2000, clean_fraction=0.0):
                 first_decay = n
             if impeachment is None and T < rn.IMPEACHMENT_THRESHOLD:
                 impeachment = n
-    return first_decay, impeachment, max_S
+            if ineligible is None and T <= rn.TRUST_THRESHOLD:
+                ineligible = n
+    return first_decay, impeachment, max_S, ineligible
 
 
 def test_detection_bound_matches_simulation():
@@ -62,7 +65,7 @@ def test_detection_bound_matches_simulation():
     for weight, const in ((rn.WEIGHT_PERSONAL, rn.WORST_CASE_DETECT_T1),
                           (rn.WEIGHT_TOF, rn.WORST_CASE_DETECT_T1),
                           (rn.WEIGHT_PEER, rn.WORST_CASE_DETECT_T3)):
-        first_decay, _, _ = simulate(weight)
+        first_decay, _, _, _ = simulate(weight)
         assert first_decay == const, (
             f"w={weight}: simulation first decays at command {first_decay}, "
             f"constant says {const}")
@@ -72,7 +75,7 @@ def test_impeachment_bound_matches_simulation():
     """n_imp = ceil(C * sigma / w), not C * ceil(sigma / w)."""
     for weight, const in ((rn.WEIGHT_PERSONAL, rn.WORST_CASE_IMPEACH_T1),
                           (rn.WEIGHT_PEER, rn.WORST_CASE_IMPEACH_T3)):
-        _, impeachment, _ = simulate(weight)
+        _, impeachment, _, _ = simulate(weight)
         assert impeachment == const, (
             f"w={weight}: simulation impeaches at command {impeachment}, "
             f"constant says {const}")
@@ -99,7 +102,7 @@ def test_closed_form_agrees_across_weights():
     """
     deployed = (rn.WEIGHT_PERSONAL, rn.WEIGHT_TOF, rn.WEIGHT_PEER)
     for weight in (1.0, 0.9, 0.5, 0.3, 0.25, 0.2, 0.15):
-        _, impeachment, _ = simulate(weight)
+        _, impeachment, _, _ = simulate(weight)
         closed = math.ceil(rn.THRESHOLD_CROSSINGS_TO_IMPEACH
                            * rn.SUSPICION_THRESHOLD / weight)
         if weight in deployed:
@@ -110,6 +113,33 @@ def test_closed_form_agrees_across_weights():
             assert closed <= impeachment <= closed + 1, (
                 f"w={weight}: simulation {impeachment}, closed form {closed}; "
                 f"more than one command of float slack means the formula is wrong")
+
+
+def test_eligibility_bound_matches_simulation():
+    """Leadership usually changes by the eligibility path, not a tau_imp vote.
+
+    Candidacy requires trust > TRUST_THRESHOLD, so an incumbent decaying to 0.5
+    or below stops being electable after ceil((T_0 - 0.5) / Delta) = 3 crossings,
+    one fewer than tau_imp needs.  Over the 97 detected bad-leader trials of the
+    2026-02-28 campaign, 94% of first leadership changes took this path (88%
+    under a worst-case correction for 5 Hz sampling of the trust traces), so this
+    is the bound that corresponds to the reported detection latencies.
+    """
+    for weight, const in ((rn.WEIGHT_PERSONAL, rn.WORST_CASE_REPLACE_T1),
+                          (rn.WEIGHT_TOF, rn.WORST_CASE_REPLACE_T1),
+                          (rn.WEIGHT_PEER, rn.WORST_CASE_REPLACE_T3)):
+        _, _, _, ineligible = simulate(weight)
+        assert ineligible == const, (
+            f"w={weight}: simulation reaches ineligibility at command {ineligible}, "
+            f"constant says {const}")
+
+
+def test_eligibility_precedes_impeachment():
+    """The eligibility bound must be strictly tighter than the tau_imp bound."""
+    assert rn.ELIGIBILITY_CROSSINGS < rn.THRESHOLD_CROSSINGS_TO_IMPEACH
+    assert rn.WORST_CASE_REPLACE_T1 < rn.WORST_CASE_IMPEACH_T1
+    assert rn.WORST_CASE_REPLACE_T3 < rn.WORST_CASE_IMPEACH_T3
+    assert (rn.WORST_CASE_REPLACE_T1, rn.WORST_CASE_REPLACE_T3) == (5, 15)
 
 
 def test_single_command_maximum_is_two_sigma():
@@ -149,7 +179,8 @@ if __name__ == '__main__':
         print(f"PASS  {t.__name__}")
     print(f"\n{len(tests)} tests passed.")
     print(f"n_detect: T1={rn.WORST_CASE_DETECT_T1}  T3={rn.WORST_CASE_DETECT_T3}")
-    print(f"n_imp:    T1={rn.WORST_CASE_IMPEACH_T1}  T3={rn.WORST_CASE_IMPEACH_T3}")
-    print(f"At {5} Hz: Tier-1 impeachment within "
-          f"{rn.WORST_CASE_IMPEACH_T1 / 5:.1f}s, Tier-3 within "
-          f"{rn.WORST_CASE_IMPEACH_T3 / 5:.1f}s")
+    print(f"n_replace:T1={rn.WORST_CASE_REPLACE_T1}  T3={rn.WORST_CASE_REPLACE_T3}  (eligibility)")
+    print(f"n_imp:    T1={rn.WORST_CASE_IMPEACH_T1}  T3={rn.WORST_CASE_IMPEACH_T3}  (tau_imp)")
+    print(f"At 5 Hz: Tier-1 leader replacement within {rn.WORST_CASE_REPLACE_T1/5:.1f}s "
+          f"(Tier-3 {rn.WORST_CASE_REPLACE_T3/5:.1f}s); explicit impeachment within "
+          f"{rn.WORST_CASE_IMPEACH_T1/5:.1f}s (Tier-3 {rn.WORST_CASE_IMPEACH_T3/5:.1f}s)")
