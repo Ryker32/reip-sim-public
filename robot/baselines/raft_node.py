@@ -878,9 +878,14 @@ class RAFTNode:
                 'last_peer_seq': peer_seq if peer_seq is not None else existing.get('last_peer_seq', -1),
                 'visited_cells': existing.get('visited_cells', set())
             }
-            # Merge coverage
+            # Merge coverage.  Apply the same wall mask used when marking our
+            # own position, so a peer cannot introduce cells the arena geometry
+            # says are unreachable.  Without this the coverage denominator
+            # differs between controllers.
             for cell in msg.get('visited_cells', []):
-                self.known_visited.add(tuple(cell))
+                cell_tuple = tuple(cell)
+                if not self._is_wall_cell(*cell_tuple):
+                    self.known_visited.add(cell_tuple)
     
     def check_election_timeout(self):
         """Check if we should start election (leader heartbeat timeout)."""
@@ -1082,7 +1087,8 @@ class RAFTNode:
                     dist = math.sqrt((pos[0] - prev_target[0])**2 +
                                      (pos[1] - prev_target[1])**2)
                     if dist < CELL_SIZE:
-                        self.known_visited.add(cell)
+                        if not self._is_wall_cell(*cell):
+                            self.known_visited.add(cell)
                         continue
                     still_valid[rid_str] = prev_target
                     assigned.add(cell)

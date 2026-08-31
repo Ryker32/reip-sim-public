@@ -6,14 +6,14 @@ HARDWARE RESULTS SUMMARY (Paper Table Format)
 Ctrl.    Fault             N    Coverage     Speed    Detect
                                    @120s    (mm/s)       (s)
 --------------------------------------------------------------------------------
-REIP     None              4       90.4%       42       ---
-REIP     Bad Leader        5       86.5%       57      12.1
-REIP     Freeze Ldr        5       87.3%       59      15.6
-REIP     Self-Injure       5       90.1%       61      13.4
-RAFT     None              5       89.5%       53       ---
-RAFT     Bad Leader        5       52.1%       43       ---
-RAFT     Freeze Ldr        5       61.9%       43       ---
-RAFT     Self-Injure       5       55.0%       38       ---
+REIP     None              4       91.8%       42       ---
+REIP     Bad Leader        5       86.7%       57      12.1
+REIP     Freeze Ldr        5       87.7%       59      15.6
+REIP     Self-Injure       5       92.5%       61      13.4
+RAFT     None              5       90.7%       53       ---
+RAFT     Bad Leader        5       52.0%       43       ---
+RAFT     Freeze Ldr        5       60.8%       43       ---
+RAFT     Self-Injure       5       56.7%       38       ---
 ================================================================================
 
 DETAILED BREAKDOWN BY CONDITION
@@ -21,93 +21,93 @@ DETAILED BREAKDOWN BY CONDITION
 
 REIP + none:
   N = 4 trials
-  Coverage: 90.4% (mean)
+  Coverage: 91.8% (mean)
   Speed: 42 mm/s (mean)
   Individual trials:
-    Trial 1: 90.4%, 37 mm/s
-    Trial 2: 90.4%, 39 mm/s
-    Trial 3: 90.4%, 43 mm/s
-    Trial 4: 90.4%, 49 mm/s
+    Trial 1: 93.4%, 37 mm/s
+    Trial 2: 87.7%, 39 mm/s
+    Trial 3: 93.4%, 43 mm/s
+    Trial 4: 92.6%, 49 mm/s
 
 REIP + bad_leader:
   N = 5 trials
-  Coverage: 86.5% (mean)
+  Coverage: 86.7% (mean)
   Speed: 57 mm/s (mean)
   Detection: 12.1s (mean)
   Individual trials:
-    Trial 1: 90.4%, 56 mm/s, detect=0.2s
-    Trial 2: 85.9%, 58 mm/s, detect=14.4s
-    Trial 3: 85.9%, 58 mm/s, detect=13.5s
-    Trial 4: 86.7%, 57 mm/s, detect=18.1s
-    Trial 5: 83.7%, 55 mm/s, detect=14.5s
+    Trial 1: 88.5%, 56 mm/s, detect=0.2s
+    Trial 2: 90.2%, 58 mm/s, detect=14.4s
+    Trial 3: 86.9%, 58 mm/s, detect=13.5s
+    Trial 4: 84.4%, 57 mm/s, detect=18.1s
+    Trial 5: 83.6%, 55 mm/s, detect=14.5s
 
 REIP + freeze_leader:
   N = 5 trials
-  Coverage: 87.3% (mean)
+  Coverage: 87.7% (mean)
   Speed: 59 mm/s (mean)
   Detection: 15.6s (mean)
   Individual trials:
-    Trial 1: 90.4%, 60 mm/s, detect=21.2s
-    Trial 2: 84.4%, 61 mm/s, detect=16.5s
-    Trial 3: 81.5%, 60 mm/s, detect=0.1s
-    Trial 4: 90.4%, 51 mm/s, detect=20.6s
-    Trial 5: 89.6%, 64 mm/s, detect=19.8s
+    Trial 1: 92.6%, 60 mm/s, detect=21.2s
+    Trial 2: 86.1%, 61 mm/s, detect=16.5s
+    Trial 3: 81.1%, 60 mm/s, detect=0.1s
+    Trial 4: 89.3%, 51 mm/s, detect=20.6s
+    Trial 5: 89.3%, 64 mm/s, detect=19.8s
 
 REIP + self_injure_leader:
   N = 5 trials
-  Coverage: 90.1% (mean)
+  Coverage: 92.5% (mean)
   Speed: 61 mm/s (mean)
   Detection: 13.4s (mean)
   Individual trials:
-    Trial 1: 90.4%, 65 mm/s, detect=13.5s
-    Trial 2: 90.4%, 58 mm/s, detect=14.7s
-    Trial 3: 88.9%, 64 mm/s, detect=10.0s
-    Trial 4: 90.4%, 58 mm/s, detect=15.1s
-    Trial 5: 90.4%, 59 mm/s, detect=13.8s
+    Trial 1: 96.7%, 65 mm/s, detect=13.5s
+    Trial 2: 91.8%, 58 mm/s, detect=14.7s
+    Trial 3: 90.2%, 64 mm/s, detect=10.0s
+    Trial 4: 88.5%, 58 mm/s, detect=15.1s
+    Trial 5: 95.1%, 59 mm/s, detect=13.8s
 
 RAFT + none:
   N = 5 trials
-  Coverage: 89.5% (mean)
+  Coverage: 90.7% (mean)
   Speed: 53 mm/s (mean)
   Individual trials:
-    Trial 1: 91.1%, 50 mm/s
-    Trial 2: 91.9%, 61 mm/s
-    Trial 3: 85.9%, 48 mm/s
-    Trial 4: 87.4%, 52 mm/s
-    Trial 5: 91.1%, 55 mm/s
+    Trial 1: 96.7%, 50 mm/s
+    Trial 2: 97.5%, 61 mm/s
+    Trial 3: 86.1%, 48 mm/s
+    Trial 4: 82.8%, 52 mm/s
+    Trial 5: 90.2%, 55 mm/s
 
 RAFT + bad_leader:
   N = 5 trials
-  Coverage: 52.1% (mean)
+  Coverage: 52.0% (mean)
   Speed: 43 mm/s (mean)
   Individual trials:
-    Trial 1: 65.9%, 51 mm/s
-    Trial 2: 51.9%, 45 mm/s
-    Trial 3: 54.1%, 40 mm/s
-    Trial 4: 44.4%, 40 mm/s
-    Trial 5: 44.4%, 39 mm/s
+    Trial 1: 62.3%, 51 mm/s
+    Trial 2: 54.1%, 45 mm/s
+    Trial 3: 56.6%, 40 mm/s
+    Trial 4: 45.9%, 40 mm/s
+    Trial 5: 41.0%, 39 mm/s
 
 RAFT + freeze_leader:
   N = 5 trials
-  Coverage: 61.9% (mean)
+  Coverage: 60.8% (mean)
   Speed: 43 mm/s (mean)
   Individual trials:
-    Trial 1: 71.9%, 50 mm/s
-    Trial 2: 45.2%, 34 mm/s
-    Trial 3: 70.4%, 39 mm/s
-    Trial 4: 47.4%, 36 mm/s
-    Trial 5: 74.8%, 54 mm/s
+    Trial 1: 75.4%, 50 mm/s
+    Trial 2: 40.2%, 34 mm/s
+    Trial 3: 69.7%, 39 mm/s
+    Trial 4: 50.0%, 36 mm/s
+    Trial 5: 68.9%, 54 mm/s
 
 RAFT + self_injure_leader:
   N = 5 trials
-  Coverage: 55.0% (mean)
+  Coverage: 56.7% (mean)
   Speed: 38 mm/s (mean)
   Individual trials:
-    Trial 1: 44.4%, 25 mm/s
-    Trial 2: 63.0%, 40 mm/s
-    Trial 3: 45.2%, 49 mm/s
-    Trial 4: 76.3%, 40 mm/s
-    Trial 5: 45.9%, 37 mm/s
+    Trial 1: 44.3%, 25 mm/s
+    Trial 2: 65.6%, 40 mm/s
+    Trial 3: 47.5%, 49 mm/s
+    Trial 4: 77.9%, 40 mm/s
+    Trial 5: 48.4%, 37 mm/s
 
 ================================================================================
 LATEX TABLE FORMAT (copy into paper)
@@ -118,13 +118,13 @@ LATEX TABLE FORMAT (copy into paper)
 \textbf{Speed} & \textbf{Detect} \\
  & & & \textbf{@120s} & \textbf{(mm/s)} & \textbf{(s)} \\
 \midrule
-Reip     & None            &   4  &      90.4\% &      42 &      --- \\
-Reip     & Bad Leader      &   5  &      86.5\% &      57 &     12.1 \\
-Reip     & Freeze Ldr      &   5  &      87.3\% &      59 &     15.6 \\
-Reip     & Self-Injure     &   5  &      90.1\% &      61 &     13.4 \\
-Raft     & None            &   5  &      89.5\% &      53 &      --- \\
-Raft     & Bad Leader      &   5  &      52.1\% &      43 &      --- \\
-Raft     & Freeze Ldr      &   5  &      61.9\% &      43 &      --- \\
-Raft     & Self-Injure     &   5  &      55.0\% &      38 &      --- \\
+Reip     & None            &   4  &      91.8\% &      42 &      --- \\
+Reip     & Bad Leader      &   5  &      86.7\% &      57 &     12.1 \\
+Reip     & Freeze Ldr      &   5  &      87.7\% &      59 &     15.6 \\
+Reip     & Self-Injure     &   5  &      92.5\% &      61 &     13.4 \\
+Raft     & None            &   5  &      90.7\% &      53 &      --- \\
+Raft     & Bad Leader      &   5  &      52.0\% &      43 &      --- \\
+Raft     & Freeze Ldr      &   5  &      60.8\% &      43 &      --- \\
+Raft     & Self-Injure     &   5  &      56.7\% &      38 &      --- \\
 \bottomrule
 \end{tabular}

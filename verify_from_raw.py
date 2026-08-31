@@ -166,7 +166,7 @@ for variant, (pcov, pdet, pfp) in TABLE_II.items():
     check(f'Table II {variant}', ok, detail)
 
 # ============================== TABLE III ==============================
-print('\n=== TABLE III: HARDWARE (N=5 per condition) ===')
+print('\n=== TABLE III: HARDWARE (N=5 per condition; coverage over 122 reachable cells) ===')
 sys.path.insert(0, REPO_ROOT)
 _cwd = os.getcwd()
 os.chdir(REPO_ROOT)
@@ -187,18 +187,19 @@ finally:
     os.chdir(_cwd)
 
 TABLE_III = {
-    # Corrected from the originally published 91.0%: that figure averaged five
-    # 2026-03-03 runs, two of which report more visited cells than the arena
-    # contains.  Those runs predate the 2026-03-05 fix to visit marking and are
-    # rejected by the coverage validity check, leaving the 2026-03-12 session.
-    ('reip', 'none'): (90.4, 42),
-    ('reip', 'bad_leader'): (86.5, 57),
-    ('reip', 'freeze_leader'): (87.3, 59),
-    ('reip', 'self_injure_leader'): (90.1, 61),
-    ('raft', 'none'): (89.5, 53),
-    ('raft', 'bad_leader'): (52.1, 43),
-    ('raft', 'freeze_leader'): (61.9, 43),
-    ('raft', 'self_injure_leader'): (55.0, 38),
+    # Coverage is now the union of reachable cells occupied by any robot,
+    # divided by the 122 cells DEFAULT_ARENA.is_wall_cell() permits.  The
+    # previously published figures divided by a literal 135, which has no
+    # geometric basis, and read each node's known_visited_count, which depends
+    # on peer gossip and so measured the two controllers differently.
+    ('reip', 'none'): (91.8, 42),
+    ('reip', 'bad_leader'): (86.7, 57),
+    ('reip', 'freeze_leader'): (87.7, 59),
+    ('reip', 'self_injure_leader'): (92.5, 61),
+    ('raft', 'none'): (90.7, 53),
+    ('raft', 'bad_leader'): (52.0, 43),
+    ('raft', 'freeze_leader'): (60.8, 43),
+    ('raft', 'self_injure_leader'): (56.7, 38),
 }
 for key, (pcov, pspeed) in TABLE_III.items():
     trials = selected.get(key, [])
@@ -209,9 +210,7 @@ for key, (pcov, pspeed) in TABLE_III.items():
     c = float(np.mean([t['coverage'] for t in trials]))
     s = float(np.mean([t['speed'] for t in trials]))
     ok = abs(c - pcov) < 0.15 and abs(s - pspeed) < 0.5
-    note = ''
-    if key == ('reip', 'none'):
-        note = '   [N=4; corrected from 91.0%, see comment above]'
+    note = '   [N=4; selection inferred, not in the run log]' if key == ('reip', 'none') else ''
     check(f'Table III {key[0]}/{key[1]}', ok,
           f'{key[0]:6s} {key[1]:20s} n={len(trials)}  cov {c:5.1f}% (paper {pcov}) '
           f'speed {s:3.0f} (paper {pspeed}){note}')

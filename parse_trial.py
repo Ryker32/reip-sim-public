@@ -104,7 +104,8 @@ def parse_trial(trial_dir):
     # Coverage estimate: union of visited cells across all robots
     print("--- Coverage Summary ---")
     final_known = max(e[-1].get('known_visited_count', 0) for e in all_data.values())
-    total_cells = 135  # explorable cells in the multiroom arena
+    from arena_coverage import TOTAL_REACHABLE_CELLS
+    total_cells = TOTAL_REACHABLE_CELLS  # derived from DEFAULT_ARENA.is_wall_cell()
     coverage_pct = final_known / total_cells * 100
     print(f"  Known visited cells: {final_known}/{total_cells} = {coverage_pct:.1f}%")
 

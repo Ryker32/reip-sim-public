@@ -19,14 +19,12 @@ from collections import defaultdict
 from statistics import mean, median, stdev
 
 # Paper arena: 2000x1500mm, multiroom layout
-TOTAL_EXPLORABLE_CELLS = 135  # From parse_trial.py
-# NOTE: this denominator disagrees with the geometry the robot code enforces.
-# DEFAULT_ARENA.is_wall_cell() (robot/reip_node.py) rejects 70 of the 16x12=192
-# cells, so a robot can only ever mark 122.  A trial that reaches every
-# reachable cell therefore reports 122/135 = 90.4%, not 100%, which is why 90.4%
-# recurs throughout the hardware data as a saturation ceiling.  Changing the
-# denominator to 122 would rescale every published hardware coverage figure, so
-# it is left at 135 pending that decision.  See the coverage validity check below.
+from arena_coverage import (TOTAL_REACHABLE_CELLS, coverage_pct,
+                             covered_cells)
+
+# Denominator is derived from DEFAULT_ARENA.is_wall_cell() (see arena_coverage),
+# never a literal, so it cannot drift from the geometry the robots enforce.
+TOTAL_EXPLORABLE_CELLS = TOTAL_REACHABLE_CELLS
 TRIAL_DURATION = 120  # seconds
 
 # Per-robot state logs appear under three naming conventions across the
@@ -101,13 +99,22 @@ def parse_trial_dir(trial_dir):
     t0 = min(e[0]['t'] for e in all_entries.values() if e)
     
     # Coverage: max known_visited_count across all robots at end
+    # Coverage is the union of reachable cells occupied by at least one robot,
+    # reconstructed from the logged trajectories.  This is the definition the
+    # paper states, and unlike each node's known_visited_count it does not
+    # depend on which peer gossip arrived, so controllers are measured alike.
+    covered = covered_cells(all_entries)
+    coverage = coverage_pct(all_entries)
     final_known = max(e[-1].get('known_visited_count', 0) for e in all_entries.values() if e)
-    coverage_pct = final_known / TOTAL_EXPLORABLE_CELLS * 100
-    if final_known > TOTAL_EXPLORABLE_CELLS:
-        warn(trial_dir, f"IMPOSSIBLE COVERAGE: {final_known} cells visited but only "
-                        f"{TOTAL_EXPLORABLE_CELLS} are explorable ({coverage_pct:.1f}%). "
+    if len(covered) > TOTAL_EXPLORABLE_CELLS or coverage > 100.0:
+        warn(trial_dir, f"IMPOSSIBLE COVERAGE: {len(covered)} cells covered but only "
+                        f"{TOTAL_EXPLORABLE_CELLS} are reachable ({coverage:.1f}%). "
                         f"Excluded from all means.")
         return None
+    if final_known > TOTAL_EXPLORABLE_CELLS:
+        warn(trial_dir, f"node reported {final_known} known-visited cells, above the "
+                        f"{TOTAL_EXPLORABLE_CELLS}-cell reachable set (pre-2026-03-05 "
+                        f"five-cell stamping). Trajectory measure used instead.")
     
     # Speed: compute from position changes
     speeds = []
@@ -174,7 +181,7 @@ def parse_trial_dir(trial_dir):
         'controller': controller,
         'fault': fault_type,
         'trial_dir': trial_dir,
-        'coverage': coverage_pct,
+        'coverage': coverage,
         'speed': avg_speed,
         'detection_time': detection_time,
         'fault1_time': fault1_time - t0 if fault1_time else None,

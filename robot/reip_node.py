@@ -1074,6 +1074,10 @@ class REIPNode:
         for cell in msg.get('visited_cells', []):
             cell_tuple = tuple(cell)
             peer.visited_cells.add(cell_tuple)
+            # Same wall mask as our own position marking, so peers cannot
+            # introduce cells the arena geometry says are unreachable.
+            if self._is_wall_cell(*cell_tuple):
+                continue
             if cell_tuple not in self.known_visited:
                 self.known_visited.add(cell_tuple)
                 self.known_visited_time[cell_tuple] = now_mono  # When WE learned about it

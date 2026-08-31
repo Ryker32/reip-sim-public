@@ -67,7 +67,10 @@ TRIAL_MAP = {
     'raft_self_injure_leader_t5_20260315_211523': ('raft', 'self_injure_leader', 5),
 }
 
-TOTAL_EXPLORABLE_CELLS = 135
+from arena_coverage import TOTAL_REACHABLE_CELLS
+
+# Derived from DEFAULT_ARENA.is_wall_cell(), never a literal.
+TOTAL_EXPLORABLE_CELLS = TOTAL_REACHABLE_CELLS
 
 def find_trial_folder(pattern):
     """Find trial folder matching pattern."""
