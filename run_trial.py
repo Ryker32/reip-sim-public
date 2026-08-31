@@ -55,7 +55,7 @@ HOSTS = {
     4: '192.168.20.22',
     5: '192.168.20.18',
 }
-PASSWORD = 'clanker'
+PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 NUM_ROBOTS = 5
 
 UDP_PEER_PORT = 5200

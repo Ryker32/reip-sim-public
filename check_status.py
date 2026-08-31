@@ -1,4 +1,8 @@
 import paramiko, json, time
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 HOSTS = {
     1: '192.168.20.16',
@@ -12,7 +16,7 @@ for rid in sorted(HOSTS.keys()):
     try:
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(HOSTS[rid], username='pi', password='clanker', timeout=5)
+        ssh.connect(HOSTS[rid], username='pi', password=SSH_PASSWORD, timeout=5)
 
         # Is process running?
         stdin, stdout, stderr = ssh.exec_command('pgrep -f reip_node')

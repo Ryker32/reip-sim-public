@@ -2,7 +2,7 @@ import paramiko
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('clanker1.local', username='pi', password='clanker', timeout=10)
+ssh.connect('clanker1.local', username='pi', password=SSH_PASSWORD, timeout=10)
 
 print("=== Last 30 lines of JSONL log ===")
 stdin, stdout, stderr = ssh.exec_command('tail -30 ~/reip/logs/robot_1_*.jsonl 2>&1')
@@ -21,6 +21,10 @@ ssh.close()
 import socket
 import json
 import time
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)

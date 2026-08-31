@@ -14,17 +14,51 @@ import json
 import os
 import glob
 import re
+import sys
 from collections import defaultdict
 from statistics import mean, median, stdev
 
 # Paper arena: 2000x1500mm, multiroom layout
 TOTAL_EXPLORABLE_CELLS = 135  # From parse_trial.py
+# NOTE: this denominator disagrees with the geometry the robot code enforces.
+# DEFAULT_ARENA.is_wall_cell() (robot/reip_node.py) rejects 70 of the 16x12=192
+# cells, so a robot can only ever mark 122.  A trial that reaches every
+# reachable cell therefore reports 122/135 = 90.4%, not 100%, which is why 90.4%
+# recurs throughout the hardware data as a saturation ceiling.  Changing the
+# denominator to 122 would rescale every published hardware coverage figure, so
+# it is left at 135 pending that decision.  See the coverage validity check below.
 TRIAL_DURATION = 120  # seconds
+
+# Per-robot state logs appear under three naming conventions across the
+# hardware sessions.  Earlier sessions wrote "r<N>_robot_<N>_<ts>.jsonl";
+# the 2026-03-15 session wrote "r<N>_<controller>_<N>_<ts>.jsonl"; the
+# overhead-camera recordings wrote a single combined "robot_states.jsonl".
+# Only the first two carry per-robot known_visited_count, which is what the
+# coverage metric needs.
+LOG_GLOBS = ('r*_robot_*.jsonl', 'r*_*.jsonl')
+
+
+def warn(trial_dir, reason):
+    """Report a skipped trial loudly.  Silent drops previously hid every
+    Raft trial from the summary table."""
+    print(f"  [SKIP] {trial_dir}: {reason}", file=sys.stderr)
+
+
+def find_log_files(trial_dir):
+    """Return per-robot log files, trying each naming convention in turn."""
+    for pattern in LOG_GLOBS:
+        files = sorted(glob.glob(os.path.join(trial_dir, pattern)))
+        files = [f for f in files if os.path.basename(f) != 'robot_states.jsonl']
+        if files:
+            return files
+    return []
 
 def parse_trial_dir(trial_dir):
     """Parse a single trial directory and extract metrics."""
     meta_path = os.path.join(trial_dir, 'trial_meta.json')
     if not os.path.exists(meta_path):
+        warn(trial_dir, "no trial_meta.json (unlabelled recording; controller "
+                        "and fault are unknown, cannot be assigned to a table cell)")
         return None
     
     with open(meta_path) as f:
@@ -36,8 +70,11 @@ def parse_trial_dir(trial_dir):
     fault1_robot = meta.get('fault1_robot')
     
     # Parse robot logs
-    log_files = sorted(glob.glob(os.path.join(trial_dir, 'r*_robot_*.jsonl')))
+    log_files = find_log_files(trial_dir)
     if not log_files:
+        warn(trial_dir, f"trial_meta.json present (controller={controller}, "
+                        f"fault={fault_type}) but no per-robot .jsonl matched "
+                        f"any of {LOG_GLOBS}")
         return None
     
     all_entries = {}
@@ -57,6 +94,7 @@ def parse_trial_dir(trial_dir):
             all_entries[rid] = entries
     
     if not all_entries:
+        warn(trial_dir, "per-robot logs present but every one was empty or unparseable")
         return None
     
     # Find trial start time (first entry across all robots)
@@ -65,6 +103,11 @@ def parse_trial_dir(trial_dir):
     # Coverage: max known_visited_count across all robots at end
     final_known = max(e[-1].get('known_visited_count', 0) for e in all_entries.values() if e)
     coverage_pct = final_known / TOTAL_EXPLORABLE_CELLS * 100
+    if final_known > TOTAL_EXPLORABLE_CELLS:
+        warn(trial_dir, f"IMPOSSIBLE COVERAGE: {final_known} cells visited but only "
+                        f"{TOTAL_EXPLORABLE_CELLS} are explorable ({coverage_pct:.1f}%). "
+                        f"Excluded from all means.")
+        return None
     
     # Speed: compute from position changes
     speeds = []
@@ -139,37 +182,130 @@ def parse_trial_dir(trial_dir):
     }
 
 
+def _dir_date(trial_dir):
+    m = re.search(r'_(\d{8})_\d{6}[/\\]?$', trial_dir)
+    return m.group(1) if m else None
+
+
+def _dir_trialnum(trial_dir):
+    m = re.search(r'_t(\d+)_\d{8}_\d{6}[/\\]?$', trial_dir)
+    return int(m.group(1)) if m else None
+
+
+RUN_GUIDE = 'HARDWARE_RUN_GUIDE.md'
+
+
+def load_run_guide():
+    """Trial directories named in the contemporaneous hardware run log.
+
+    HARDWARE_RUN_GUIDE.md records, for each numbered trial, the exact
+    directory that run produced.  It was written during the session, so it
+    is an independent record of which run counted as trial N -- not an
+    after-the-fact reconstruction from the results.  Where a trial number
+    was attempted more than once, this log is the authority on which
+    attempt is the real one.
+    """
+    if not os.path.exists(RUN_GUIDE):
+        return set()
+    with open(RUN_GUIDE, encoding='utf8', errors='replace') as fh:
+        text = fh.read()
+    return set(re.findall(r'trials[\\/]([a-z_]+_t\d+_\d{8}_\d{6})', text))
+
+
+def select_paper_trials(results):
+    """Pick the trial set behind the paper's hardware table.
+
+    Preferred source: the directories named in HARDWARE_RUN_GUIDE.md.
+    For conditions the run log does not cover, fall back to the heuristic
+    below and say so, since that fallback is inferred rather than recorded.
+
+    Fallback rule, applied per (controller, fault):
+
+      1. Group the condition's trials by session date.
+      2. Prefer the most recent session that contains at least 5 distinct
+         trial numbers (t1..t5).  Within it, a repeated trial number means
+         the run was retried, so the latest timestamp for each trial number
+         supersedes earlier attempts.  Take trial numbers 1-5.
+      3. If no session has 5 distinct trial numbers (some early sessions
+         logged every run as "t1"), fall back to every valid trial from the
+         most recent session for that condition.
+
+    Trials rejected by parse_trial_dir (unlabelled, unparseable, or
+    impossible coverage) never reach this function.
+    """
+    guide = load_run_guide()
+    by_cond = defaultdict(lambda: defaultdict(list))
+    for r in results:
+        by_cond[(r['controller'], r['fault'])][_dir_date(r['trial_dir'])].append(r)
+
+    selected = defaultdict(list)
+    for cond, by_date in by_cond.items():
+        listed = [r for d in by_date for r in by_date[d]
+                  if os.path.basename(r['trial_dir'].rstrip('/\\')) in guide]
+        if len(listed) >= 5:
+            listed.sort(key=lambda r: (_dir_trialnum(r['trial_dir']) or 0))
+            selected[cond] = listed[:5]
+            print(f"  {cond[0]:6s} {cond[1]:20s} -> {RUN_GUIDE}, {len(listed[:5])} named trials",
+                  file=sys.stderr)
+            continue
+        dated = sorted(d for d in by_date if d)
+        if not dated:
+            continue
+        chosen_date = None
+        for d in reversed(dated):
+            if len({_dir_trialnum(r['trial_dir']) for r in by_date[d]
+                    if _dir_trialnum(r['trial_dir'])}) >= 5:
+                chosen_date = d
+                break
+        if chosen_date:
+            latest_per_num = {}
+            for r in by_date[chosen_date]:
+                n = _dir_trialnum(r['trial_dir'])
+                if n is None:
+                    continue
+                if n not in latest_per_num or r['trial_dir'] > latest_per_num[n]['trial_dir']:
+                    latest_per_num[n] = r
+            picked = [latest_per_num[n] for n in sorted(latest_per_num) if n <= 5]
+            note = f"session {chosen_date}, trials t1-t5 (latest rerun of each)"
+        else:
+            chosen_date = dated[-1]
+            picked = sorted(by_date[chosen_date], key=lambda r: r['trial_dir'])
+            note = (f"session {chosen_date}, all {len(picked)} valid runs "
+                    f"(condition has no t1-t5 numbering; NOT in {RUN_GUIDE}, "
+                    f"so this selection is inferred, not recorded)")
+        selected[cond] = picked
+        print(f"  {cond[0]:6s} {cond[1]:20s} -> {note}", file=sys.stderr)
+    return selected
+
+
 def main():
-    # Find all trial directories - filter to recent ones (20260315) if specified
-    all_trial_dirs = sorted(glob.glob('trials/*/'))
-    
-    # Filter to only trials from the run dates in the guide (20260315)
-    # Or use all if you want everything
-    trial_dirs = [d for d in all_trial_dirs if '20260315' in d]
-    
-    if not trial_dirs:
-        print("No trial directories found for 20260315, using all trials")
-        trial_dirs = all_trial_dirs
-    
+    use_all = '--all' in sys.argv
+    trial_dirs = sorted(glob.glob('trials/*/'))
     if not trial_dirs:
         print("No trial directories found in 'trials/'")
         return
-    
-    print(f"Found {len(trial_dirs)} trial directories (filtered to 20260315)\n")
-    
-    # Parse all trials
+
+    print(f"Scanning {len(trial_dirs)} trial directories"
+          f"{' (--all: no paper selection)' if use_all else ''}\n")
+
     all_results = []
     for trial_dir in trial_dirs:
         result = parse_trial_dir(trial_dir)
         if result:
             all_results.append(result)
-    
-    # Group by (controller, fault)
+    print(f"\n  {len(all_results)} of {len(trial_dirs)} trials parsed successfully.",
+          file=sys.stderr)
+
     groups = defaultdict(list)
-    for r in all_results:
-        key = (r['controller'], r['fault'])
-        groups[key].append(r)
-    
+    if use_all:
+        for r in all_results:
+            groups[(r['controller'], r['fault'])].append(r)
+    else:
+        print("\n  Paper trial selection:", file=sys.stderr)
+        for cond, picked in select_paper_trials(all_results).items():
+            groups[cond] = picked
+    print(file=sys.stderr)
+
     # Print summary table (matching paper format)
     print("=" * 80)
     print("HARDWARE RESULTS SUMMARY (Paper Table Format)")

@@ -1,8 +1,12 @@
 import paramiko
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('192.168.20.16', username='pi', password='clanker', timeout=5)
+ssh.connect('192.168.20.16', username='pi', password=SSH_PASSWORD, timeout=5)
 
 # Check if code has _wall_slide_heading (from latest deploy)
 stdin, stdout, stderr = ssh.exec_command(

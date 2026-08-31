@@ -1,4 +1,8 @@
 import paramiko, time, os, sys
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 HOSTS = {1:'192.168.20.16',2:'192.168.20.15',3:'192.168.20.112',4:'192.168.20.22',5:'192.168.20.18'}
 rid = int(sys.argv[1]) if len(sys.argv) > 1 else 5
@@ -8,7 +12,7 @@ LOCAL_FILE = os.path.join(os.path.dirname(__file__), 'robot', 'reip_node.py')
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 print(f"Connecting to R{rid} ({host})...")
-ssh.connect(host, username='pi', password='clanker', timeout=10)
+ssh.connect(host, username='pi', password=SSH_PASSWORD, timeout=10)
 ssh.exec_command('pkill -f reip_node; sleep 0.5')
 time.sleep(1)
 sftp = ssh.open_sftp()

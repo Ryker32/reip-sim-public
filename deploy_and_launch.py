@@ -10,7 +10,7 @@ HOSTS = {
     4: '192.168.20.22',
     5: '192.168.20.18',
 }
-PASSWORD = 'clanker'
+PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 LOCAL_FILE = os.path.join(os.path.dirname(__file__), 'robot', 'reip_node.py')
 
 def deploy_all(local_file=None, remote_script='reip_node.py', max_retries=3):

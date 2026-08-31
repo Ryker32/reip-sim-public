@@ -1,11 +1,15 @@
 import paramiko, time, os
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 LOCAL_FILE = os.path.join(os.path.dirname(__file__), 'robot', 'reip_node.py')
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 print("Connecting to clanker4 (192.168.20.22)...")
-ssh.connect('192.168.20.22', username='pi', password='clanker', timeout=10)
+ssh.connect('192.168.20.22', username='pi', password=SSH_PASSWORD, timeout=10)
 
 ssh.exec_command('pkill -f reip_node; sleep 0.5')
 time.sleep(1)

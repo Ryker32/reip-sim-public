@@ -2,7 +2,7 @@ import paramiko, time
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('192.168.20.22', username='pi', password='clanker', timeout=5)
+ssh.connect('192.168.20.22', username='pi', password=SSH_PASSWORD, timeout=5)
 
 # Kill any running reip_node first so we can use UART
 ssh.exec_command('pkill -f reip_node; sleep 1')
@@ -12,6 +12,10 @@ time.sleep(2)
 test_script = '''
 import serial
 import time
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 uart = serial.Serial('/dev/serial0', 115200, timeout=0.5)
 time.sleep(0.3)

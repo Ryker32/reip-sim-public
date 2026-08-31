@@ -1,4 +1,8 @@
 import paramiko, time
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 HOSTS = {
     1: '192.168.20.16',
@@ -14,7 +18,7 @@ def get_positions():
         try:
             ssh = paramiko.SSHClient()
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh.connect(HOSTS[rid], username='pi', password='clanker', timeout=5)
+            ssh.connect(HOSTS[rid], username='pi', password=SSH_PASSWORD, timeout=5)
             stdin, stdout, stderr = ssh.exec_command(f'tail -1 /tmp/reip_{rid}.log')
             line = stdout.read().decode().strip()
             positions[rid] = line

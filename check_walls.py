@@ -1,10 +1,14 @@
 import paramiko
 import json
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 for rid in [1, 2]:
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(f'clanker{rid}.local', username='pi', password='clanker', timeout=10)
+    ssh.connect(f'clanker{rid}.local', username='pi', password=SSH_PASSWORD, timeout=10)
     
     print(f"=== Last 5 log entries (robot {rid}) ===")
     stdin, stdout, stderr = ssh.exec_command(f'tail -5 ~/reip/logs/robot_{rid}_*.jsonl')

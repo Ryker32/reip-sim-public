@@ -1,4 +1,8 @@
 import paramiko, time
+import os
+
+# SSH password for the robot Pis. Set REIP_ROBOT_SSH_PASSWORD in your environment.
+SSH_PASSWORD = os.environ.get("REIP_ROBOT_SSH_PASSWORD")
 
 HOSTS = {1:'192.168.20.16', 2:'192.168.20.15', 3:'192.168.20.112', 4:'192.168.20.22', 5:'192.168.20.18'}
 
@@ -6,7 +10,7 @@ for rid in [3, 4]:
     try:
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(HOSTS[rid], username='pi', password='clanker', timeout=5)
+        ssh.connect(HOSTS[rid], username='pi', password=SSH_PASSWORD, timeout=5)
 
         # Check crash log
         stdin, stdout, stderr = ssh.exec_command(f'tail -15 /tmp/reip_{rid}.log 2>/dev/null')
@@ -36,7 +40,7 @@ print("\n=== R1 connectivity test ===")
 try:
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(HOSTS[1], username='pi', password='clanker', timeout=10)
+    ssh.connect(HOSTS[1], username='pi', password=SSH_PASSWORD, timeout=10)
     stdin, stdout, stderr = ssh.exec_command('hostname')
     print(f"  R1 hostname: {stdout.read().decode().strip()}")
     
