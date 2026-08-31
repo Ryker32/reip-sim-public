@@ -42,6 +42,10 @@ import os
 from glob import glob
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Tuple, Set
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from arena_coverage import ARENA  # noqa: E402  single source of arena geometry
 
 # ============== Colors (BGR) ==============
 C_ARENA       = (0, 255, 0)       # green  -- arena boundary
@@ -118,19 +122,15 @@ class Calibration:
         return int(x_mm), int(y_mm)
 
     def is_wall_cell(self, cx: int, cy: int) -> bool:
-        OUTER_MARGIN = 0
-        DIVIDER_MARGIN = 20
-        BODY_RADIUS = 77
-        x = cx * self.cell_size + self.cell_size / 2
-        y = cy * self.cell_size + self.cell_size / 2
-        if x < OUTER_MARGIN or x > self.arena_w - OUTER_MARGIN:
-            return True
-        if y < OUTER_MARGIN or y > self.arena_h - OUTER_MARGIN:
-            return True
-        if y < self.wall_y_end and (
-            self.wall_x_left - DIVIDER_MARGIN < x < self.wall_x_right + DIVIDER_MARGIN):
-            return True
-        return False
+        """Delegate to the canonical arena geometry.
+
+        This used to be a third, independent implementation using outer margin
+        0, divider margin 20 and body radius 77 -- none of which match the
+        geometry the robots and the coverage metric actually use (110 / 64 /
+        100).  The overlay therefore drew a different reachable set than the
+        one every reported number was computed against.
+        """
+        return ARENA.is_wall_cell(cx, cy)
 
 
 def load_calibration(header: dict) -> Calibration:

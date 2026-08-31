@@ -1636,8 +1636,11 @@ class ExperimentRunner:
             # Track coverage using the same center-cell semantics as the
             # robot nodes. The node broadcasts its own visited_cells too, so
             # this is just a local mirror to keep milestone timing aligned.
-            cell = (int(x / CELL_SIZE), int(y / CELL_SIZE))
-            self._record_visited_cell(cell)
+            # Apply the same wall mask as the hardware_clone path above, so
+            # both branches count against one reachable set.
+            cell = self.geometry.pos_to_cell(x, y)
+            if cell is not None and not self.geometry.is_wall_cell(*cell):
+                self._record_visited_cell(cell)
 
     def get_coverage(self) -> float:
         """Calculate current coverage percentage"""

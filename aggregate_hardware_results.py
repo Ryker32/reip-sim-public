@@ -144,39 +144,68 @@ def parse_trial_dir(trial_dir):
     
     avg_speed = mean(speeds) if speeds else 0
     
-    # Detection time: find first trust drop below 0.85 after fault injection
-    detection_time = None
-    if fault1_time and fault1_robot and controller == 'reip':
-        # fault1_time is already absolute, need to convert to relative
-        # Find when fault actually happened relative to trial start
-        fault_t_rel = None
-        for rid, entries in all_entries.items():
-            for e in entries:
-                # Check if this entry is close to fault injection time
-                if abs(e['t'] - fault1_time) < 5.0:  # Within 5s
-                    fault_t_rel = e['t'] - t0
-                    break
-            if fault_t_rel is not None:
-                break
-        
-        if fault_t_rel is None:
-            # Fallback: use meta fault time if available
-            fault_t_rel = fault1_time - t0 if fault1_time > t0 else 20.0  # Default to 20s
-        
-        # Now find first trust drop after fault
+    # ---- Detection timing -------------------------------------------------
+    # trial_meta stores fault1_actual_time as SECONDS SINCE start_time, not as
+    # an absolute epoch.  This code used to assume the opposite: its lookup
+    # (abs(e['t'] - fault1_time) < 5.0) compared a ~1.77e9 epoch against ~20.0
+    # and so never matched, and the fallback silently substituted a literal
+    # 20.0 measured from the first log line -- an origin 1.7-2.2 s later than
+    # start_time, which made every detection interval that much too short.
+    is_fault_trial = bool(fault_type) and fault_type != 'none'
+    fault_abs = None
+    if is_fault_trial:
+        if fault1_time is None:
+            warn(trial_dir, f"fault trial (fault={fault_type}) has no "
+                            f"fault1_actual_time in trial_meta.json; the fault "
+                            f"injection was never recorded, so detection timing "
+                            f"cannot be computed. Excluded from detection stats.")
+        else:
+            fault_abs = meta['start_time'] + fault1_time
+
+    def _first_after(pred):
+        """Earliest time after fault injection at which any follower satisfies
+        pred, in seconds relative to the fault."""
+        best = None
         for rid, entries in all_entries.items():
             if rid == fault1_robot:
-                continue  # Skip the leader itself
+                continue  # the faulted leader does not judge itself
             for e in entries:
-                t_rel = e['t'] - t0
-                if t_rel >= fault_t_rel:
-                    trust = e.get('trust_in_leader', 1.0)
-                    if trust < 0.85:
-                        detection_time = t_rel - fault_t_rel
-                        break
-            if detection_time is not None:
-                break
-    
+                if e['t'] >= fault_abs and pred(e):
+                    dt = e['t'] - fault_abs
+                    best = dt if best is None else min(best, dt)
+                    break
+        return best
+
+    time_to_first_suspicion = None
+    time_to_impeachment = None
+    if fault_abs is not None and controller == 'reip':
+        # Matches Table I's two definitions: first suspicion is the first trust
+        # decay by any follower; impeachment is the first election of a leader
+        # other than the faulted one.
+        time_to_first_suspicion = _first_after(
+            lambda e: e.get('trust_in_leader', 1.0) < 1.0)
+
+        best = None
+        for rid, entries in all_entries.items():
+            if rid == fault1_robot:
+                continue
+            prev = None
+            for e in entries:
+                if e['t'] < fault_abs:
+                    prev = e.get('leader_id')
+                    continue
+                leader = e.get('leader_id')
+                if prev is not None and leader is not None \
+                        and leader != prev and leader != fault1_robot:
+                    dt = e['t'] - fault_abs
+                    best = dt if best is None else min(best, dt)
+                    break
+                prev = leader
+        time_to_impeachment = best
+
+    # Kept as the headline "Detect" figure for backward compatibility.
+    detection_time = time_to_impeachment
+
     return {
         'controller': controller,
         'fault': fault_type,
@@ -184,7 +213,9 @@ def parse_trial_dir(trial_dir):
         'coverage': coverage,
         'speed': avg_speed,
         'detection_time': detection_time,
-        'fault1_time': fault1_time - t0 if fault1_time else None,
+        'time_to_first_suspicion': time_to_first_suspicion,
+        'time_to_impeachment': time_to_impeachment,
+        'fault1_time': fault1_time,  # seconds since start_time
         'n_robots': len(all_entries),
     }
 
@@ -317,8 +348,10 @@ def main():
     print("=" * 80)
     print("HARDWARE RESULTS SUMMARY (Paper Table Format)")
     print("=" * 80)
-    print(f"{'Ctrl.':<8} {'Fault':<15} {'N':>3}  {'Coverage':>10}  {'Speed':>8}  {'Detect':>8}")
-    print(f"{'':8} {'':15} {'':3}  {'@120s':>10}  {'(mm/s)':>8}  {'(s)':>8}")
+    print(f"{'Ctrl.':<8} {'Fault':<15} {'N':>3}  {'Coverage':>10}  {'Speed':>8}"
+          f"  {'Suspicion':>10}  {'Impeach':>9}")
+    print(f"{'':8} {'':15} {'':3}  {'@120s':>10}  {'(mm/s)':>8}"
+          f"  {'med (s)':>10}  {'med (s)':>9}")
     print("-" * 80)
     
     # Order: REIP first, then Raft; within each: none, bad_leader, freeze_leader, self_injure_leader
@@ -344,6 +377,12 @@ def main():
         coverages = [t['coverage'] for t in trials]
         speeds = [t['speed'] for t in trials]
         detections = [t['detection_time'] for t in trials if t['detection_time'] is not None]
+        susp = [t['time_to_first_suspicion'] for t in trials
+                if t.get('time_to_first_suspicion') is not None]
+        imps = [t['time_to_impeachment'] for t in trials
+                if t.get('time_to_impeachment') is not None]
+        susp_str = f"{median(susp):.1f}" if susp else "---"
+        imp_str = f"{median(imps):.1f}" if imps else "---"
         
         avg_coverage = mean(coverages)
         avg_speed = mean(speeds)
@@ -360,7 +399,8 @@ def main():
         ctrl_display = ctrl.upper()
         detect_str = f"{avg_detect:.1f}" if avg_detect is not None else "---"
         
-        print(f"{ctrl_display:<8} {fault_display:<15} {n:>3}  {avg_coverage:>9.1f}%  {avg_speed:>7.0f}  {detect_str:>8}")
+        print(f"{ctrl_display:<8} {fault_display:<15} {n:>3}  {avg_coverage:>9.1f}%"
+              f"  {avg_speed:>7.0f}  {susp_str:>10}  {imp_str:>9}")
         
         summary_data[key] = {
             'n': n,
