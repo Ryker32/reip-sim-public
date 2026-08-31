@@ -223,9 +223,22 @@ IMPEACHMENT_THRESHOLD = 0.3  # Below = vote to impeach
 #
 # Full impeachment requires trust to drop from 1.0 to IMPEACHMENT_THRESHOLD (0.3).
 # Each threshold crossing decays trust by TRUST_DECAY_RATE (0.2).
-# Need ceil((1.0 - 0.3) / 0.2) = 4 threshold crossings.
-# Worst case (all Tier 3): 4 * 5 = 20 commands to impeachment.
-# Best case (all Tier 1):  4 * 2 = 8 commands to impeachment.
+# Need C = ceil((1.0 - 0.3) / 0.2) = 4 threshold crossings.
+#
+# Crossings after the first arrive sooner than the first, because crossing
+# subtracts sigma and carries the residual rather than resetting to zero.  So
+# n_imp is NOT C * n_detect: that multiplies by an already-rounded quantity and
+# rounds twice.  After n flagged commands the accumulator has crossed
+# floor(n * w / sigma) times, so impeachment needs n >= C * sigma / w:
+#
+#   n_imp = ceil(C * sigma / w)
+#
+# Tier 1: ceil(4 * 1.5 / 1.0) =  6 commands  (the old C * n_detect gave 8)
+# Tier 3: ceil(4 * 1.5 / 0.3) = 20 commands  (unchanged; sigma/w is integral)
+#
+# At the 5 Hz broadcast rate that is 1.2 s under Tier-1 evidence, not 1.6 s.
+# See test/test_trust_bounds.py, which pins these against a simulation of the
+# actual update rule rather than against the closed form.
 # An adversary interleaving clean commands evades accumulation only if its
 # flagged fraction stays below RECOVERY_RATE / (w + RECOVERY_RATE):
 # 9.1% under Tier-1 evidence, 25% under Tier-3. Below that rate the leader
@@ -234,8 +247,10 @@ IMPEACHMENT_THRESHOLD = 0.3  # Below = vote to impeach
 WORST_CASE_DETECT_T1 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PERSONAL)
 WORST_CASE_DETECT_T3 = math.ceil(SUSPICION_THRESHOLD / WEIGHT_PEER)
 THRESHOLD_CROSSINGS_TO_IMPEACH = math.ceil((1.0 - IMPEACHMENT_THRESHOLD) / TRUST_DECAY_RATE)
-WORST_CASE_IMPEACH_T1 = THRESHOLD_CROSSINGS_TO_IMPEACH * WORST_CASE_DETECT_T1
-WORST_CASE_IMPEACH_T3 = THRESHOLD_CROSSINGS_TO_IMPEACH * WORST_CASE_DETECT_T3
+WORST_CASE_IMPEACH_T1 = math.ceil(
+    THRESHOLD_CROSSINGS_TO_IMPEACH * SUSPICION_THRESHOLD / WEIGHT_PERSONAL)
+WORST_CASE_IMPEACH_T3 = math.ceil(
+    THRESHOLD_CROSSINGS_TO_IMPEACH * SUSPICION_THRESHOLD / WEIGHT_PEER)
 
 # Causality grace period: accounts for broadcast delay in distributed system.
 # A cell visited less than this many seconds before the assignment was sent
@@ -1398,7 +1413,30 @@ class REIPNode:
 
     def _apply_suspicion_update(self, suspicion_added, reasons, omega):
         """Shared suspicion/trust update used by both proactive assessment
-        (per broadcast) and the reactive ablation (per executed command)."""
+        (per broadcast) and the reactive ablation (per executed command).
+
+        ONE DECREMENT PER UPDATE -- INTENTIONAL.
+
+        The paper states the trust update with a floor operator,
+        T <- max(T_min, T - floor(S/sigma) * Delta_decay), which would apply
+        as many decrements as sigma divides into the accumulator.  This code
+        uses `if`, not `while`: at most one decrement per update, subtracting a
+        single sigma and carrying the rest.
+
+        The two differ whenever S >= 2*sigma.  That is reachable: the per-command
+        contributions cap at tier 1.0 + peer-safety 0.9 + MPC-severe 0.8 + omega
+        0.3 = 3.0, exactly 2*sigma, and the accumulator also climbs across
+        commands because each update removes at most one sigma while additions
+        continue.  In the recorded campaigns S reached 9.50, and 716 updates had
+        S >= 2*sigma out of 230,759 flagged commands.
+
+        The divergence is conservative: `if` decays trust more slowly than the
+        floor operator, so it cannot manufacture a false impeachment, and the
+        worst-case detection bound above still holds.  It is kept as `if`
+        deliberately -- switching to `while` would change runtime behaviour on
+        results that have already been verified against the raw campaign data.
+        The paper's Eq. (2) is what needs amending, not this code.
+        """
         if suspicion_added > 0:
             self.suspicion_of_leader += suspicion_added
             self.bad_commands_received += 1
