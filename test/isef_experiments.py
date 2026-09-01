@@ -2440,6 +2440,12 @@ ABLATION_CONDITIONS = [
     ("Reactive_BL",    "reip", "bad_leader",    1, "reactive"),
     ("Reactive_FL",    "reip", "freeze_leader", 1, "reactive"),
     ("Reactive_Clean", "reip", None,            1, "reactive"),
+    # CUSUM decision-rule ablation: identical three-tier evidence, one-sided
+    # CUSUM in place of REIP's accumulator, alarm routed to the same
+    # leader-replacement path. k and h come from REIP_CUSUM_K / REIP_CUSUM_H.
+    ("Cusum_BL",    "reip", "bad_leader",    1, "cusum"),
+    ("Cusum_FL",    "reip", "freeze_leader", 1, "cusum"),
+    ("Cusum_Clean", "reip", None,            1, "cusum"),
 ]
 
 ADVERSARY_CONDITIONS = [

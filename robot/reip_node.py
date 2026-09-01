@@ -267,6 +267,26 @@ WORST_CASE_IMPEACH_T3 = math.ceil(
 #
 # Tier 1: ceil(3 * 1.5 / 1.0) =  5 commands = 1.0 s at 5 Hz
 # Tier 3: ceil(3 * 1.5 / 0.3) = 15 commands = 3.0 s at 5 Hz
+# ---- CUSUM decision-rule ablation -------------------------------------------
+# Baseline that holds the evidence identical and varies only the decision rule.
+# The three-tier front end produces the same per-command increment w_t; instead
+# of REIP's accumulator this applies a standard one-sided CUSUM,
+#     g_t = max(0, g_{t-1} + (w_t - k)),  alarm when g_t > h
+# routing the alarm into the same leader-replacement path.
+#
+# Two differences from REIP, both deliberate and both reported:
+#   - REIP subtracts its reference r only on cleanly verifying commands; CUSUM
+#     subtracts k on every command.
+#   - REIP needs ELIGIBILITY_CROSSINGS (3) crossings before the incumbent
+#     becomes ineligible; CUSUM acts on the first alarm. REIP is a 3-of rule,
+#     CUSUM a 1-of rule over the same evidence stream.
+#
+# k and h come from the environment so a calibration sweep needs no harness
+# change. Defaults are placeholders until calibrated on clean trials of the
+# tagged build to match REIP's spurious-change rate.
+CUSUM_K = float(os.environ.get("REIP_CUSUM_K", "0.10"))
+CUSUM_H = float(os.environ.get("REIP_CUSUM_H", "1.50"))
+
 ELIGIBILITY_CROSSINGS = math.ceil((1.0 - TRUST_THRESHOLD) / TRUST_DECAY_RATE)
 WORST_CASE_REPLACE_T1 = math.ceil(
     ELIGIBILITY_CROSSINGS * SUSPICION_THRESHOLD / WEIGHT_PERSONAL)
@@ -1458,6 +1478,28 @@ class REIPNode:
         results that have already been verified against the raw campaign data.
         The paper's Eq. (2) is what needs amending, not this code.
         """
+        # ---- CUSUM decision rule (ablation) --------------------------------
+        # Same evidence, different rule. One alarm drives trust to the floor,
+        # putting the incumbent below both tau_elig and tau_imp, so it enters
+        # exactly the replacement path REIP uses.
+        if getattr(self, '_ablation_cusum', False):
+            if suspicion_added > 0:
+                self.bad_commands_received += 1
+                if self.first_bad_command_time is None:
+                    self.first_bad_command_time = time.time()
+            self._cusum_g = max(0.0, self._cusum_g + (suspicion_added - CUSUM_K))
+            self.suspicion_of_leader = self._cusum_g   # logged as 'suspicion'
+            if self._cusum_g > CUSUM_H and self.trust_in_leader > MIN_TRUST:
+                self.trust_in_leader = MIN_TRUST
+                if self.first_decay_time is None:
+                    self.first_decay_time = time.time()
+                    if self.first_bad_command_time:
+                        dt = self.first_decay_time - self.first_bad_command_time
+                        print(f"[CUSUM] Alarm after {self.bad_commands_received} flagged "
+                              f"commands ({dt:.2f}s), g={self._cusum_g:.2f} > h={CUSUM_H}")
+                self._cusum_g = 0.0
+            return
+
         if suspicion_added > 0:
             self.suspicion_of_leader += suspicion_added
             self.bad_commands_received += 1
@@ -3393,6 +3435,7 @@ if __name__ == "__main__":
         print("       no_direction  - Disable MPC direction consistency check")
         print("       no_instability - Disable command instability (omega) check")
         print("       reactive      - Defer evidence until command executed (reactive baseline)")
+        print("       cusum         - Replace the accumulator with a one-sided CUSUM")
         sys.exit(1)
     
     robot_id = int(sys.argv[1])
@@ -3415,7 +3458,8 @@ if __name__ == "__main__":
     if "--ablation" in sys.argv:
         idx = sys.argv.index("--ablation")
         ablation_mode = sys.argv[idx + 1]
-        valid_modes = ("no_trust", "no_causality", "no_direction", "no_instability", "reactive")
+        valid_modes = ("no_trust", "no_causality", "no_direction", "no_instability",
+                       "reactive", "cusum")
         if ablation_mode not in valid_modes:
             print(f"ERROR: Unknown ablation mode '{ablation_mode}'. Valid: {valid_modes}")
             sys.exit(1)
@@ -3455,6 +3499,14 @@ if __name__ == "__main__":
         print(f"=== ABLATION: no_instability -- Command instability (omega) check DISABLED ===")
     else:
         node._ablation_no_instability = False
+
+    if ablation_mode == "cusum":
+        node._ablation_cusum = True
+        node._cusum_g = 0.0
+        print(f"=== ABLATION: cusum -- g_t=max(0,g+(w-k)), k={CUSUM_K}, h={CUSUM_H} ===")
+    else:
+        node._ablation_cusum = False
+        node._cusum_g = 0.0
 
     if ablation_mode == "reactive":
         node._ablation_reactive = True
