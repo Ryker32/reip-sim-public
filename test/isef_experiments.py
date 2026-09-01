@@ -3073,6 +3073,19 @@ def main():
                     schedule_name = None
                 jobs.append((name, layout, controller, fault_type, fault_robot, trial, seed, ablation, use_fixed, schedule_name))
 
+    # Fail loudly before burning a campaign: --ablation cusum reads k and h from
+    # the environment, and neither is recorded in any output, so a run that fell
+    # back to defaults looks exactly like a calibrated one.
+    if any(j[7] == "cusum" for j in jobs):
+        _missing = [v for v in ("REIP_CUSUM_K", "REIP_CUSUM_H") if os.environ.get(v) is None]
+        if _missing:
+            print(f"ERROR: {' and '.join(_missing)} must be set for CUSUM conditions. "
+                  f"Refusing to run: the resulting trials would be indistinguishable "
+                  f"from calibrated ones in the output.")
+            sys.exit(2)
+        print(f"  CUSUM parameters: k={os.environ['REIP_CUSUM_K']}, "
+              f"h={os.environ['REIP_CUSUM_H']}\n")
+
     total = len(jobs)
     if total == 0:
         print("No experiments matched the given filters. Check --condition and --layout.")

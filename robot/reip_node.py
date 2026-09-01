@@ -284,8 +284,13 @@ WORST_CASE_IMPEACH_T3 = math.ceil(
 # k and h come from the environment so a calibration sweep needs no harness
 # change. Defaults are placeholders until calibrated on clean trials of the
 # tagged build to match REIP's spurious-change rate.
-CUSUM_K = float(os.environ.get("REIP_CUSUM_K", "0.10"))
-CUSUM_H = float(os.environ.get("REIP_CUSUM_H", "1.50"))
+# Read the raw values too, so --ablation cusum can refuse to run on defaults.
+# A calibration run that silently used the fallback h is indistinguishable from a
+# valid one in the output: nothing downstream records k or h.
+_CUSUM_K_ENV = os.environ.get("REIP_CUSUM_K")
+_CUSUM_H_ENV = os.environ.get("REIP_CUSUM_H")
+CUSUM_K = float(_CUSUM_K_ENV) if _CUSUM_K_ENV is not None else 0.10
+CUSUM_H = float(_CUSUM_H_ENV) if _CUSUM_H_ENV is not None else 1.50
 
 ELIGIBILITY_CROSSINGS = math.ceil((1.0 - TRUST_THRESHOLD) / TRUST_DECAY_RATE)
 WORST_CASE_REPLACE_T1 = math.ceil(
@@ -3501,6 +3506,14 @@ if __name__ == "__main__":
         node._ablation_no_instability = False
 
     if ablation_mode == "cusum":
+        _missing = [n for n, v in (("REIP_CUSUM_K", _CUSUM_K_ENV),
+                                   ("REIP_CUSUM_H", _CUSUM_H_ENV)) if v is None]
+        if _missing:
+            print(f"ERROR: --ablation cusum requires {' and '.join(_missing)} to be set. "
+                  f"Refusing to fall back to defaults (k={CUSUM_K}, h={CUSUM_H}): a run "
+                  f"that silently used them is indistinguishable from a calibrated one, "
+                  f"since neither k nor h is recorded in any output.", file=sys.stderr)
+            sys.exit(2)
         node._ablation_cusum = True
         node._cusum_g = 0.0
         print(f"=== ABLATION: cusum -- g_t=max(0,g+(w-k)), k={CUSUM_K}, h={CUSUM_H} ===")
